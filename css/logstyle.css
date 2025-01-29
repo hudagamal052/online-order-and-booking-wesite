@@ -1,0 +1,81 @@
+body {
+  background-color: #c9d2d7;
+}
+
+section {
+  width: 75%;
+}
+
+
+@media (max-width: 600px) {
+  section {
+    width: 100%;
+  }
+}
+
+img {
+  transition: 2s;
+}
+
+.log-form {
+  background-color: white;
+  padding: 10px 20px;
+  margin-top: 70px;
+}
+
+.signup {
+  padding-right: 30px;
+  border-right: 1px solid #ddd;
+  transition: 2s;
+}
+
+.login {
+  padding-left: 20px;
+}
+
+.background {
+  background: url('../images/background.jpg');
+  background-size: cover;
+  height: 100%;
+  transition: 2s;
+  border-radius: 10px;
+}
+
+.orange {
+  background-color: #ff5a01;
+  border: #ff5a01 solid 1px;
+  color: white;
+}
+
+.orange:hover {
+  background-color: #e95100;
+  color: white;
+}
+
+input:focus {
+  border: #ff813cd3 1px solid !important;
+  outline: #ff813cd3 4px solid !important;
+}
+
+.form-check-input:checked {
+  background-color: #ff5a01;
+  border: #ff5a01 1px solid;
+}
+
+.signlink {
+  color: #ff5a01;
+  text-decoration: none;
+}
+
+.loglink {
+  color: #ff5a01;
+  text-decoration: none;
+}
+
+.login {
+  transition: 2s;
+}
+
+#signform {
+  transition: 2s;
+}
