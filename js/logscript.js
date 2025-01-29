@@ -13,6 +13,8 @@ let signbtn = document.getElementById("signbtn");
 let logemail = document.getElementById("logemail");
 let logpassword = document.getElementById("logpwd");
 let logbtn = document.getElementById("logbtn");
+let userName = document.getElementById("userName");
+let logOutBtn = document.getElementById("logOutBtn");
 
 let users;
 if (localStorage.getItem("userList") != null) {
@@ -86,20 +88,42 @@ signbtn.onclick = function (e) {
 
   alert("Sign-up successful!");
 
-  window.location.href = "log.html";
+  window.location.href = "index.html";
 };
+let foundUser = null,
+  currentUser;
 
 logbtn.onclick = function (e) {
   e.preventDefault();
-  let foundUser = users.find(
+  foundUser = users.find(
     (user) =>
       user.email === logemail.value && user.password === logpassword.value
   );
+  localStorage.setItem("currentUser", JSON.stringify(foundUser));
 
   if (foundUser) {
     alert("Login successful!");
-    window.location.href = "home.html";
+    window.location.href = "index.html";
   } else {
     alert("Invalid email or password.");
   }
+};
+
+if (JSON.parse(localStorage.getItem("currentUser"))) {
+  openPopupButton1.style.display = "none";
+  openPopupButton2.style.display = "none";
+  userName.innerHTML = JSON.parse(localStorage.getItem("currentUser")).name;
+  logOutBtn.style.display = "block";
+} else {
+  userName.innerHTML = "";
+  openPopupButton1.style.display = "block";
+  openPopupButton2.style.display = "block";
+}
+
+logOutBtn.onclick = function () {
+  userName.innerHTML = "";
+  openPopupButton1.style.display = "block";
+  openPopupButton2.style.display = "block";
+  logOutBtn.style.display = "none";
+  localStorage.setItem("currentUser", null);
 };

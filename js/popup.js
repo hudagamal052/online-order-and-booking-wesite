@@ -55,7 +55,6 @@ popup.addEventListener("click", (event) => {
     closePopup();
   }
 });
-console.log(formVisibleElement);
 
 let navLog = document.getElementsByClassName("nav-log")[0];
 
