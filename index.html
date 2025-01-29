@@ -1,312 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/logstyle.css">
-    <link rel="stylesheet" href="css/popup.css">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/logstyle.css" />
+    <link rel="stylesheet" href="css/popup.css" />
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg sticky-top box-shadow">
-        <div class="container">
-            <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link p-2 p-lg-3 fs-5 active" aria-current="page" href="">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link p-2 p-lg-3 fs-5 nav-sign openPopup" id="openPopup1" href="">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup" id="openPopup2" href="">Login</a>
-                    </li>
-                </ul>
-                <form class=" p-2 p-lg-3 d-none d-lg-flex" id="search-form">
-                    <input class="form-control" list="datalistOptions" id="exampleDataList"
-                        placeholder="Search Restaurants...">
-                    <datalist id="datalistOptions">
-                        <option value="sushi">
-                        <option value="sea food">
-                        <option value="healthy food">
-                        <option value="dessert">
-                        <option value="coffee">
-                    </datalist>
-                    <button class="btn ms-2" type="submit">Search</button>
-                </form>
-            </div>
+      <div class="container">
+        <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 active"
+                aria-current="page"
+                href=""
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 nav-sign openPopup"
+                id="openPopup1"
+                href=""
+                >Sign Up</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup"
+                id="openPopup2"
+                href=""
+                >Login</a
+              >
+            </li>
+          </ul>
+          <form class="p-2 p-lg-3 d-none d-lg-flex" id="search-form">
+            <input
+              class="form-control"
+              list="datalistOptions"
+              id="exampleDataList"
+              placeholder="Search Restaurants..."
+            />
+            <datalist id="datalistOptions">
+              <option value="sushi"></option>
+              <option value="sea food"></option>
+              <option value="healthy food"></option>
+              <option value="dessert"></option>
+              <option value="coffee"></option>
+            </datalist>
+
+            <button class="btn ms-2" type="submit">Search</button>
+          </form>
         </div>
+      </div>
     </nav>
     <div id="popup" class="popup">
-        <main class="d-flex justify-content-center align-items-center" style="position: relative" class="popup-content">
-            <section class="d-flex log-form rounded-2 shadow p-3 mb-5 bg-body-tertiary rounded">
-                <section class="signup background">
-                    <form action="pro.html" class="d-flex flex-column" style="opacity: 0; visibility: hidden"
-                        id="signform">
-                        <span id="closePopup" class="close">&times;</span>
-                        <div class="mb-3 mt-3 sign">
-                            <label for="firstname">First name:</label>
-                            <input type="text" class="form-control" id="firstname" placeholder="Enter first name"
-                                name="firstname" required />
-                            <label for="lastname">Last name:</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="Enter last name"
-                                name="lastname" required />
-                            <label for="signemail" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="signemail" placeholder="Enter email"
-                                name="signemail" required />
-                        </div>
-                        <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="signpwd" placeholder="Enter password"
-                                name="signpswd" required />
-                        </div>
-                        <button type="submit" class="btn orange" id="signbtn">
-                            Sign up
-                        </button>
-                        <div class="text-center mt-3">
-                            <p>
-                                Already have an account?
-                                <a href="" class="loglink">Login</a>
-                            </p>
-                        </div>
-                    </form>
-                </section>
-                <section id="login" class="login">
-                    <form action="/action_page.php" class="d-flex flex-column" id="loginform">
-                        <span id="closePopup2" class="close">&times;</span>
-                        <div class="mb-3 mt-3">
-                            <label for="logemail" class="form-label">Email:</label>
-                            <div class="d-flex align-items-center">
-                                <i class="fa-regular fa-user pe-2"></i>
-                                <input type="email" class="form-control" id="logemail" placeholder="Enter email"
-                                    name="logemail" />
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-lock pe-2"></i>
-                                <input type="password" class="form-control" id="logpwd" placeholder="Enter password"
-                                    name="logpswd" />
-                            </div>
-                        </div>
-                        <div class="form-check mb-3">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remembercheck" />
-                                Remember me
-                            </label>
-                        </div>
-                        <button type="submit" class="btn orange mt-4" id="logbtn">
-                            Login
-                        </button>
-                        <div class="text-center mt-3">
-                            <p>
-                                Don't have an account?
-                                <a href="" class="signlink">Create an account</a>
-                            </p>
-                        </div>
-                    </form>
-                </section>
-            </section>
-        </main>
+      <main
+        class="d-flex justify-content-center align-items-center"
+        style="position: relative"
+        class="popup-content"
+      >
+        <section
+          class="d-flex log-form rounded-2 shadow p-3 mb-5 bg-body-tertiary rounded formVisible"
+        >
+          <section class="signup background">
+            <form
+              action="pro.html"
+              class="d-flex flex-column"
+              style="opacity: 0; visibility: hidden"
+              id="signform"
+            >
+              <span id="closePopup" class="close">&times;</span>
+              <div class="mb-3 mt-3 sign">
+                <label for="firstname">First name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstname"
+                  placeholder="Enter first name"
+                  name="firstname"
+                  required
+                />
+                <label for="lastname">Last name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+                  placeholder="Enter last name"
+                  name="lastname"
+                  required
+                />
+                <label for="signemail" class="form-label">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signemail"
+                  placeholder="Enter email"
+                  name="signemail"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signpwd"
+                  placeholder="Enter password"
+                  name="signpswd"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn orange" id="signbtn">
+                Sign up
+              </button>
+              <div class="text-center mt-3">
+                <p>
+                  Already have an account?
+                  <a href="" class="loglink">Login</a>
+                </p>
+              </div>
+            </form>
+          </section>
+          <section id="login" class="login">
+            <form
+              action="/action_page.php"
+              class="d-flex flex-column"
+              id="loginform"
+            >
+              <span id="closePopup2" class="close">&times;</span>
+              <div class="mb-3 mt-3">
+                <label for="logemail" class="form-label">Email:</label>
+                <div class="d-flex align-items-center">
+                  <i class="fa-regular fa-user pe-2"></i>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="logemail"
+                    placeholder="Enter email"
+                    name="logemail"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-lock pe-2"></i>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="logpwd"
+                    placeholder="Enter password"
+                    name="logpswd"
+                  />
+                </div>
+              </div>
+              <div class="form-check mb-3">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="remember"
+                    id="remembercheck"
+                  />
+                  Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn orange mt-4" id="logbtn">
+                Login
+              </button>
+              <div class="text-center mt-3">
+                <p>
+                  Don't have an account?
+                  <a href="" class="signlink">Create an account</a>
+                </p>
+              </div>
+            </form>
+          </section>
+        </section>
+      </main>
     </div>
 
     <div class="container specific-landing mt-4">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
-                    aria-label="Slide 5"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="images/1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings
-                        </h1>
-                        <p class="fs-5">Book a table easily and instantly in the best restaurants near you.
-                        </p>
-                        <p class="fs-5">Discover an incredible dining experience.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="images/2.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings
-                        </h1>
-                        <p class="fs-5">Book a table easily and instantly in the best restaurants near you.
-                        </p>
-                        <p class="fs-5">Discover an incredible dining experience.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="images/outdoor.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings
-                        </h1>
-                        <p class="fs-5">Book a table easily and instantly in the best restaurants near you.
-                        </p>
-                        <p class="fs-5">Discover an incredible dining experience.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="images/4.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings
-                        </h1>
-                        <p class="fs-5">Book a table easily and instantly in the best restaurants near you.
-                        </p>
-                        <p class="fs-5">Discover an incredible dining experience.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="images/5.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings
-                        </h1>
-                        <p class="fs-5">Book a table easily and instantly in the best restaurants near you.
-                        </p>
-                        <p class="fs-5">Discover an incredible dining experience.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="4"
+            aria-label="Slide 5"
+          ></button>
         </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/1.jpg" class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings</h1>
+              <p class="fs-5">
+                Book a table easily and instantly in the best restaurants near
+                you.
+              </p>
+              <p class="fs-5">Discover an incredible dining experience.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/2.jpg" class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings</h1>
+              <p class="fs-5">
+                Book a table easily and instantly in the best restaurants near
+                you.
+              </p>
+              <p class="fs-5">Discover an incredible dining experience.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/outdoor.jpg" class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings</h1>
+              <p class="fs-5">
+                Book a table easily and instantly in the best restaurants near
+                you.
+              </p>
+              <p class="fs-5">Discover an incredible dining experience.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/4.jpg" class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings</h1>
+              <p class="fs-5">
+                Book a table easily and instantly in the best restaurants near
+                you.
+              </p>
+              <p class="fs-5">Discover an incredible dining experience.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/5.jpg" class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="orbitron-h1 fs-1 mb-3">Instant online bookings</h1>
+              <p class="fs-5">
+                Book a table easily and instantly in the best restaurants near
+                you.
+              </p>
+              <p class="fs-5">Discover an incredible dining experience.</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
-    <div class="container-fluid seperator">
-    </div>
+    <div class="container-fluid seperator"></div>
     <div class="container landing bg-white py-5">
-        <div>
-            <h2 class="orbitron-h2 text-center pb-4">Categories</h2>
+      <div>
+        <h2 class="orbitron-h2 text-center pb-4">Categories</h2>
+      </div>
+      <div class="row justify-content-center my-lg-5">
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img src="images/fastfood.jpg " class="card-img-top" alt="..." />
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Fast Food Restaurants</h5>
+          </div>
         </div>
-        <div class="row justify-content-center my-lg-5 ">
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/fastfood.jpg " class="card-img-top" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Fast Food Restaurants</h5>
-                </div>
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img
+                src="images/grill.jpg"
+                class="card-img-top height-100"
+                alt="..."
+              />
             </div>
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/grill.jpg" class="card-img-top height-100" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Grill Restaurants</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/seafood.jpg" class="card-img-top height-100" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Sea Food Restaurants</h5>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/sushi.jpg" class="card-img-top height-100" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Sushi Restaurants</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/pizza.jpeg" class="card-img-top height-100" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Pizza Restaurants</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/healthy food.jpg" class="card-img-top" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Healthy Food Restaurants</h5>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/dessert.jpg" class="card-img-top" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Dessert Cafés</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/outdoor.jpg" class="card-img-top" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Outdoor Cafés</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
-                <a href="restaurants.html">
-                    <div class="card">
-                        <img src="images/coffee.jpg" class="card-img-top" alt="...">
-                    </div>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title text-center">Specialty Coffee Shops</h5>
-                </div>
-            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Grill Restaurants</h5>
+          </div>
         </div>
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img
+                src="images/seafood.jpg"
+                class="card-img-top height-100"
+                alt="..."
+              />
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Sea Food Restaurants</h5>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img
+                src="images/sushi.jpg"
+                class="card-img-top height-100"
+                alt="..."
+              />
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Sushi Restaurants</h5>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img
+                src="images/pizza.jpeg"
+                class="card-img-top height-100"
+                alt="..."
+              />
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Pizza Restaurants</h5>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img
+                src="images/healthy food.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Healthy Food Restaurants</h5>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img src="images/dessert.jpg" class="card-img-top" alt="..." />
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Dessert Cafés</h5>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img src="images/outdoor.jpg" class="card-img-top" alt="..." />
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Outdoor Cafés</h5>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-5 pb-5 mx-lg-4">
+          <a href="restaurants.html">
+            <div class="card">
+              <img src="images/coffee.jpg" class="card-img-top" alt="..." />
+            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center">Specialty Coffee Shops</h5>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="container-fluid seperator">
-    </div>
+    <div class="container-fluid seperator"></div>
 
     <!-- <div class="container my-5">
             <div class="row landing d-flex align-items-center justify-content-center">
@@ -319,42 +456,47 @@
                 </div>
             </div>
         </div> -->
-    <div class="container landing bg-white d-flex align-items-center justify-content-center ">
-        <div class="col text-center py-5">
-            <h2 class=" orbitron-h2">
-                <i class="fa-solid fa-utensils"></i>
-                Random Restaurant Recommendation
-                <i class="fa-solid fa-mug-saucer"></i>
-            </h2>
-            <div class="fs-5 my-4">
-                <p class="fs-4">We think you'll love:</p>
-                <p id="restaurant-name"></p>
-                <p id="restaurant-phone"></p>
-                <p id="restaurant-address"></p>
-                <p id="restaurant-rating"></p>
-            </div>
+    <div
+      class="container landing bg-white d-flex align-items-center justify-content-center"
+    >
+      <div class="col text-center py-5">
+        <h2 class="orbitron-h2">
+          <i class="fa-solid fa-utensils"></i>
+          Random Restaurant Recommendation
+          <i class="fa-solid fa-mug-saucer"></i>
+        </h2>
+        <div class="fs-5 my-4">
+          <p class="fs-4">We think you'll love:</p>
+          <p id="restaurant-name"></p>
+          <p id="restaurant-phone"></p>
+          <p id="restaurant-address"></p>
+          <p id="restaurant-rating"></p>
         </div>
+      </div>
     </div>
-    <div class="container-fluid seperator">
-    </div>
+    <div class="container-fluid seperator"></div>
     <div class="container-fluid footer p-5 box-shadow">
-        <footer class="">
-            <ul class="nav justify-content-center pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2">Sign Up</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2">Login</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2">About Us</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 ">Contact Us</a></li>
-            </ul>
-            <p class="fs-5 copy text-center">©Copyright 2025</p>
-        </footer>
+      <footer class="">
+        <ul class="nav justify-content-center pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2">Sign Up</a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link px-2">Login</a></li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2">Contact Us</a>
+          </li>
+        </ul>
+        <p class="fs-5 copy text-center">©Copyright 2025</p>
+      </footer>
     </div>
     <script src=" js/all.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/logscript.js"></script>
     <script src=" js/script.js"></script>
     <script src="js/popup.js"></script>
-
-</body>
-
+  </body>
 </html>
