@@ -72,10 +72,11 @@ body {
     /* Main Content */
     main {
       padding: 40px 20px;
-      background-image: url('photos/background.jpg');
+      background-color:#c9d2d7 ;
+      /* background-image: url('photos/background.jpg');
       background-size: cover; 
       background-repeat: no-repeat; 
-      background-position: center; 
+      background-position: center;  */
     }
 
   .header {
