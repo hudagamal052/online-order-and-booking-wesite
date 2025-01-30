@@ -56,3 +56,6 @@ document.getElementById('search-form').addEventListener('submit', function (even
     event.preventDefault(); // Prevent the form from submitting
 });
 
+
+
+
