@@ -112,7 +112,7 @@ logbtn.onclick = function (e) {
 if (JSON.parse(localStorage.getItem("currentUser"))) {
   openPopupButton1.style.display = "none";
   openPopupButton2.style.display = "none";
-  userName.innerHTML = "Welcome" + JSON.parse(localStorage.getItem("currentUser")).name + " !";
+  userName.innerHTML = "Welcome " + JSON.parse(localStorage.getItem("currentUser")).name + " !";
   logOutBtn.style.display = "block";
 } else {
   userName.innerHTML = "";
