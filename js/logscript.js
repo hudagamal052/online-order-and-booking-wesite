@@ -88,7 +88,7 @@ signbtn.onclick = function (e) {
 
   alert("Sign-up successful!");
 
-  window.location.href = "index.html";
+  window.location.reload();
 };
 let foundUser = null,
   currentUser;
@@ -103,7 +103,7 @@ logbtn.onclick = function (e) {
 
   if (foundUser) {
     alert("Login successful!");
-    window.location.href = "index.html";
+    window.location.reload();
   } else {
     alert("Invalid email or password.");
   }
@@ -112,7 +112,7 @@ logbtn.onclick = function (e) {
 if (JSON.parse(localStorage.getItem("currentUser"))) {
   openPopupButton1.style.display = "none";
   openPopupButton2.style.display = "none";
-  userName.innerHTML = JSON.parse(localStorage.getItem("currentUser")).name;
+  userName.innerHTML = "Welcome " + JSON.parse(localStorage.getItem("currentUser")).name + " !";
   logOutBtn.style.display = "block";
 } else {
   userName.innerHTML = "";
