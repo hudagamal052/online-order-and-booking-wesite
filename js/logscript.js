@@ -88,7 +88,7 @@ signbtn.onclick = function (e) {
 
   alert("Sign-up successful!");
 
-  window.location.href = "index.html";
+  window.location.reload();
 };
 let foundUser = null,
   currentUser;
@@ -103,7 +103,7 @@ logbtn.onclick = function (e) {
 
   if (foundUser) {
     alert("Login successful!");
-    window.location.href = "index.html";
+    window.location.reload();
   } else {
     alert("Invalid email or password.");
   }

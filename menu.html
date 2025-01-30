@@ -1,247 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restaurant Menu</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <style>
-    :root {
-      --background-color: #FF5A01;
-      --light-color: white;
-    }
-
-    body {
-      background-image: url('images/background.jpg');
-      background-size: cover;
-    }
-
-    /* nav */
-    .orbitron-font {
-      font-family: "Orbitron", serif;
-      font-optical-sizing: auto;
-      font-weight: 600;
-      font-style: normal;
-      color: var(--background-color);
-    }
-
-    .navbar {
-      background-color: var(--light-color);
-      font-size: large;
-
-    }
-
-    .navbar .navbar-nav .nav-link.active,
-    .navbar .navbar-nav .nav-link:hover {
-      color: var(--background-color);
-      font-weight: bold;
-    }
-
-    .form-control:focus {
-      border-color: var(--background-color);
-      box-shadow: 0 0 0 .25rem #ff5a015b;
-    }
-
-    .btn {
-      color: var(--background-color);
-      font-weight: bold;
-      border-color: var(--background-color);
-    }
-
-    .btn:hover {
-      color: var(--light-color);
-      background-color: var(--background-color);
-      border-color: var(--background-color);
-    }
-
-    .navbar-toggler {
-      color: var(--background-color);
-      border-color: var(--background-color);
-    }
-
-    .navbar-toggler:focus {
-      box-shadow: none;
-    }
-
-    .navbar-toggler[aria-expanded="true"] {
-      box-shadow: 0 0 0 0.25rem;
-    }
-
-
-    /* menu */
-
-
-
-    .menu-section {
-      margin-top: 30px;
-    }
-
-    .menu-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      margin: 10px;
-      text-align: center;
-    }
-
-    .card img {
-      width: 100%;
-      height: 150px;
-      border-radius: 10px;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .card h2 {
-      font-size: 18px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-
-    .card .price {
-      font-size: 16px;
-      font-weight: bold;
-      color: #28a745;
-    }
-
-    @media (min-width: 576px) {
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style>
+      :root {
+        --background-color: #ff5a01;
+        --light-color: white;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <nav class="navbar navbar-expand-lg sticky-top box-shadow">
-    <div class="container">
-      <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3 fs-5 active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3  fs-5 " href="#">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3 fs-5 " href="#">Login</a>
-          </li>
-        </ul>
-        <form class=" p-2 p-lg-3 d-none d-lg-flex" id="search-form">
-          <input class="form-control" list="datalistOptions" placeholder="Search Restaurants...">
-          <datalist id="datalistOptions">
-            <option value="sushi">
-            <option value="sea food">
-            <option value="healthy food">
-            <option value="dessert">
-            <option value="coffee">
-          </datalist>
-          <button class="btn ms-2" type="submit">Search</button>
-        </form>
+      body {
+        background-image: url("images/background.jpg");
+        background-size: cover;
+      }
+
+      /* nav */
+      .orbitron-font {
+        font-family: "Orbitron", serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        color: var(--background-color);
+      }
+
+      .navbar {
+        background-color: var(--light-color);
+        font-size: large;
+      }
+
+      .navbar .navbar-nav .nav-link.active,
+      .navbar .navbar-nav .nav-link:hover {
+        color: var(--background-color);
+        font-weight: bold;
+      }
+
+      .form-control:focus {
+        border-color: var(--background-color);
+        box-shadow: 0 0 0 0.25rem #ff5a015b;
+      }
+
+      .btn {
+        color: var(--background-color);
+        font-weight: bold;
+        border-color: var(--background-color);
+      }
+
+      .btn:hover {
+        color: var(--light-color);
+        background-color: var(--background-color);
+        border-color: var(--background-color);
+      }
+
+      .navbar-toggler {
+        color: var(--background-color);
+        border-color: var(--background-color);
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
+      }
+
+      .navbar-toggler[aria-expanded="true"] {
+        box-shadow: 0 0 0 0.25rem;
+      }
+
+      /* menu */
+
+      .menu-section {
+        margin-top: 30px;
+      }
+
+      .menu-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin: 10px;
+        text-align: center;
+      }
+
+      .card img {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      .card h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+
+      .card .price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #28a745;
+      }
+
+      @media (min-width: 576px) {
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/logstyle.css" />
+    <link rel="stylesheet" href="css/popup.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top box-shadow">
+      <div class="container">
+        <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 active"
+                aria-current="page"
+                href=""
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 nav-sign openPopup"
+                id="openPopup1"
+                href=""
+                >Sign Up</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup"
+                id="openPopup2"
+                href=""
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup" href=""
+                ><span id="userName"></span
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 nav-log"
+                id="logOutBtn"
+                href=""
+                style="display: none"
+                >Log out</a
+              >
+            </li>
+          </ul>
+          <form class="p-2 p-lg-3 d-none d-lg-flex" id="search-form">
+            <input
+              class="form-control"
+              list="datalistOptions"
+              id="exampleDataList"
+              placeholder="Search Restaurants..."
+            />
+            <datalist id="datalistOptions">
+              <option value="sushi"></option>
+              <option value="sea food"></option>
+              <option value="healthy food"></option>
+              <option value="dessert"></option>
+              <option value="coffee"></option>
+            </datalist>
+
+            <button class="btn ms-2" type="submit">Search</button>
+          </form>
+        </div>
       </div>
+    </nav>
+    <div id="popup" class="popup">
+      <main
+        class="d-flex justify-content-center align-items-center"
+        style="position: relative"
+        class="popup-content"
+      >
+        <section
+          class="d-flex log-form rounded-2 shadow p-3 mb-5 bg-body-tertiary rounded formVisible"
+        >
+          <section class="signup background">
+            <form
+              action="pro.html"
+              class="d-flex flex-column"
+              style="opacity: 0; visibility: hidden"
+              id="signform"
+            >
+              <span id="closePopup" class="close">&times;</span>
+              <div class="mb-3 mt-3 sign">
+                <label for="firstname">First name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstname"
+                  placeholder="Enter first name"
+                  name="firstname"
+                  required
+                />
+                <label for="lastname">Last name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+                  placeholder="Enter last name"
+                  name="lastname"
+                  required
+                />
+                <label for="signemail" class="form-label">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signemail"
+                  placeholder="Enter email"
+                  name="signemail"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signpwd"
+                  placeholder="Enter password"
+                  name="signpswd"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn orange" id="signbtn">
+                Sign up
+              </button>
+              <div class="text-center mt-3">
+                <p>
+                  Already have an account?
+                  <a href="" class="loglink">Login</a>
+                </p>
+              </div>
+            </form>
+          </section>
+          <section id="login" class="login">
+            <form
+              action="/action_page.php"
+              class="d-flex flex-column"
+              id="loginform"
+            >
+              <span id="closePopup2" class="close">&times;</span>
+              <div class="mb-3 mt-3">
+                <label for="logemail" class="form-label">Email:</label>
+                <div class="d-flex align-items-center">
+                  <i class="fa-regular fa-user pe-2"></i>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="logemail"
+                    placeholder="Enter email"
+                    name="logemail"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-lock pe-2"></i>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="logpwd"
+                    placeholder="Enter password"
+                    name="logpswd"
+                  />
+                </div>
+              </div>
+              <div class="form-check mb-3">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="remember"
+                    id="remembercheck"
+                  />
+                  Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn orange mt-4" id="logbtn">
+                Login
+              </button>
+              <div class="text-center mt-3">
+                <p>
+                  Don't have an account?
+                  <a href="" class="signlink">Create an account</a>
+                </p>
+              </div>
+            </form>
+          </section>
+        </section>
+      </main>
     </div>
-  </nav>
 
-  <!-- Restaurant Image Section -->
-  <div class="restaurant-image-container text-center my-4">
-    <img id="restaurant-image" alt="Restaurant"
-      style="width: 250px; height: 250px; border-radius: 50%; object-fit: cover; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-  </div>
+    <!-- Restaurant Image Section -->
+    <div class="restaurant-image-container text-center my-4">
+      <img
+        id="restaurant-image"
+        alt="Restaurant"
+        style="
+          width: 250px;
+          height: 250px;
+          border-radius: 50%;
+          object-fit: cover;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        "
+      />
+    </div>
 
-  <div class="container my-5">
-    <!-- <h1 class="text-center mb-4">Restaurant Menu</h1> -->
-    <div class="menu-title">Main Dishes</div>
-    <div id="menu-list"></div>
-  </div>
+    <div class="container my-5">
+      <!-- <h1 class="text-center mb-4">Restaurant Menu</h1> -->
+      <div class="menu-title">Main Dishes</div>
+      <div id="menu-list"></div>
+    </div>
 
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script>
-    ///////////////body///////////////////
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      ///////////////body///////////////////
 
-    // بيانات صور المطاعم
-    const restaurantImages = {
-      1: "images/McDonald's_square_2020.svg.png",
-      2: "images/WhatsApp Image 2025-01-24 at 09.16.37_289a8ecd.jpg",
-      3: "images/66A66245543FAA76BB82151ADDE0EEA9.jpeg",
-      4: "images/images (8).jpeg",
-      5: "images/WhatsApp Image 2025-01-24 at 09.16.40_8de15459.jpg",
-      6: "images/FB_IMG_1737880920032.jpg"
-    };
+      // بيانات صور المطاعم
+      const restaurantImages = {
+        1: "images/McDonald's_square_2020.svg.png",
+        2: "images/WhatsApp Image 2025-01-24 at 09.16.37_289a8ecd.jpg",
+        3: "images/66A66245543FAA76BB82151ADDE0EEA9.jpeg",
+        4: "images/images (8).jpeg",
+        5: "images/WhatsApp Image 2025-01-24 at 09.16.40_8de15459.jpg",
+        6: "images/FB_IMG_1737880920032.jpg",
+      };
 
-    // استرجاع restaurantId من الرابط
-    const urlParams = new URLSearchParams(window.location.search);
-    const restaurantId = urlParams.get('restaurantId');
+      // استرجاع restaurantId من الرابط
+      const urlParams = new URLSearchParams(window.location.search);
+      const restaurantId = urlParams.get("restaurantId");
 
-    // تحديث صورة المطعم
-    const updateRestaurantImage = () => {
-      const restaurantImage = document.getElementById('restaurant-image');
-      if (restaurantImages[restaurantId]) {
-        restaurantImage.src = restaurantImages[restaurantId];
-      } else {
-        restaurantImage.src = 'default-image.jpg'; // صورة افتراضية
-      }
-    };
+      // تحديث صورة المطعم
+      const updateRestaurantImage = () => {
+        const restaurantImage = document.getElementById("restaurant-image");
+        if (restaurantImages[restaurantId]) {
+          restaurantImage.src = restaurantImages[restaurantId];
+        } else {
+          restaurantImage.src = "default-image.jpg"; // صورة افتراضية
+        }
+      };
 
-    // عرض القائمة وتحديث الصورة
-    document.addEventListener('DOMContentLoaded', () => {
-      updateRestaurantImage();
-      displayMenu();
-    });
+      // عرض القائمة وتحديث الصورة
+      document.addEventListener("DOMContentLoaded", () => {
+        updateRestaurantImage();
+        displayMenu();
+      });
 
+      // ///////////////////////////////////////////
 
+      const menuData = {
+        1: [
+          {
+            id: 1,
+            name: "Shio ",
+            price: "$28.00",
+            image: "images/images (13).jpeg",
+            link: "meal_details.html?mealId=1",
+          },
+          {
+            id: 2,
+            name: "Shoyu ",
+            price: "$30.00",
+            image: "images/images (7).jpeg",
+            link: "meal_details.html?mealId=2",
+          },
+          {
+            id: 3,
+            name: "Miso ",
+            price: "$25.00",
+            image: "images/WhatsApp Image 2025-01-24 at 09.16.38_61534bd3.jpg",
+            link: "meal_details.html?mealId=3",
+          },
+        ],
+        2: [
+          {
+            id: 4,
+            name: "Lemon Tea",
+            price: "$12.00",
+            image: "images/WhatsApp Image 2025-01-24 at 09.16.40_993364ae.jpg",
+            link: "meal_details.html?mealId=4",
+          },
+          {
+            id: 5,
+            name: "Orange Juice",
+            price: "$15.00",
+            image: "images/WhatsApp Image 2025-01-24 at 09.16.41_32b4829e.jpg",
+            link: "meal_details.html?mealId=5",
+          },
+          {
+            id: 6,
+            name: "Lemon Squash",
+            price: "$14.00",
+            image: "images/WhatsApp Image 2025-01-24 at 09.16.41_45bcb578.jpg",
+            link: "meal_details.html?mealId=6",
+          },
+        ],
+        3: [
+          {
+            id: 7,
+            name: "Lemon Tea",
+            price: "$12.00",
+            image: "images/Lemon.jpg",
+            link: "meal_details.html?mealId=7",
+          },
+          {
+            id: 8,
+            name: "Orange Juice",
+            price: "$15.00",
+            image: "images/Orange Juice.jpg",
+            link: "meal_details.html?mealId=8",
+          },
+          {
+            id: 9,
+            name: "Lemon Squash",
+            price: "$14.00",
+            image: "images/Lemon Squash.jpg",
+            link: "meal_details.html?mealId=9",
+          },
+        ],
+      };
 
-
-
-
-    // ///////////////////////////////////////////
-
-
-
-
-    const menuData = {
-      1: [
-        { id: 1, name: "Shio ", price: "$28.00", image: "images/images (13).jpeg", link: "meal_details.html?mealId=1" },
-        { id: 2, name: "Shoyu ", price: "$30.00", image: "images/images (7).jpeg", link: "meal_details.html?mealId=2" },
-        { id: 3, name: "Miso ", price: "$25.00", image: "images/WhatsApp Image 2025-01-24 at 09.16.38_61534bd3.jpg", link: "meal_details.html?mealId=3" }
-      ],
-      2: [
-        { id: 4, name: "Lemon Tea", price: "$12.00", image: "images/WhatsApp Image 2025-01-24 at 09.16.40_993364ae.jpg", link: "meal_details.html?mealId=4" },
-        { id: 5, name: "Orange Juice", price: "$15.00", image: "images/WhatsApp Image 2025-01-24 at 09.16.41_32b4829e.jpg", link: "meal_details.html?mealId=5" },
-        { id: 6, name: "Lemon Squash", price: "$14.00", image: "images/WhatsApp Image 2025-01-24 at 09.16.41_45bcb578.jpg", link: "meal_details.html?mealId=6" }
-      ],
-      3: [
-        { id: 7, name: "Lemon Tea", price: "$12.00", image: "images/Lemon.jpg", link: "meal_details.html?mealId=7" },
-        { id: 8, name: "Orange Juice", price: "$15.00", image: "images/Orange Juice.jpg", link: "meal_details.html?mealId=8" },
-        { id: 9, name: "Lemon Squash", price: "$14.00", image: "images/Lemon Squash.jpg", link: "meal_details.html?mealId=9" }
-      ]
-    };
-
-    const displayMenu = () => {
-      const menuList = document.getElementById('menu-list');
-      menuList.innerHTML = Object.values(menuData).map(items => `
+      const displayMenu = () => {
+        const menuList = document.getElementById("menu-list");
+        menuList.innerHTML = Object.values(menuData)
+          .map(
+            (items) => `
         <div class="menu-section">
          
           <div class="grid">
-            ${items.map(item => `
+            ${items
+              .map(
+                (item) => `
               <div class="card">
                 <a href="${item.link}">
                   <img src="${item.image}" alt="${item.name}">
@@ -249,14 +477,22 @@
                 <h2>${item.name}</h2>
                 <p class="price">${item.price}</p>
               </div>
-            `).join('')}
+            `
+              )
+              .join("")}
           </div>
         </div>
-      `).join('');
-    };
+      `
+          )
+          .join("");
+      };
 
-    document.addEventListener('DOMContentLoaded', displayMenu);
-  </script>
-</body>
-
+      document.addEventListener("DOMContentLoaded", displayMenu);
+    </script>
+    <script src=" js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src=" js/script.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/logscript.js"></script>
+  </body>
 </html>
