@@ -1,445 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meal Details</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-
-    <style>
-      /*  */
-      .meal-details-card {
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 1000px;
-        display: flex;
-        /* To make the layout horizontal */
-        align-items: flex-start;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/logstyle.css" />
+  <link rel="stylesheet" href="css/popup.css" />
+  <style>
+  body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+  } /* nav */
+  .orbitron-font {
+    font-family: "Orbitron", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--background-color);
+    }
+    
+    .navbar {
+    background-color: var(--light-color);
+    font-size: large;
+    
+    }
+    
+    .navbar .navbar-nav .nav-link.active,
+    .navbar .navbar-nav .nav-link:hover {
+    color: var(--background-color);
+    font-weight: bold;
+    }
+    
+    .form-control:focus {
+    border-color: var(--background-color);
+    box-shadow: 0 0 0 .25rem #ff5a015b;
+    }
+    
+    .btn {
+    color: var(--background-color);
+    font-weight: bold;
+    border-color: var(--background-color);
+    }
+    
+    .btn:hover {
+    color: var(--light-color);
+    background-color: var(--background-color);
+    border-color: var(--background-color);
+    }
+    
+    .navbar-toggler {
+    color: var(--background-color);
+    border-color: var(--background-color);
+    }
+    
+    .navbar-toggler:focus {
+    box-shadow: none;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] {
+    box-shadow: 0 0 0 0.25rem;
+    }
+    .navbar.scrolled {
+      background-color:rgb(253, 178, 137) !important; /* خلفية برتقالية */
+      transition: background-color 0.3s ease; /* تأثير انتقال سلس */
       }
+    
 
-      .meal-image-container {
-        flex: 1;
-      }
+/*  */
+.meal-details-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  display: flex; /* To make the layout horizontal */
+  align-items: flex-start;
+}
 
-      .meal-image {
-        width: 100%;
-        /* Full width inside its container */
-        height: auto;
-        border-radius: 10px;
-        object-fit: cover;
-      }
+.meal-image-container {
+  flex: 1;
+}
 
-      .meal-info {
-        flex: 2;
-        /* Take up more space */
-        margin-left: 20px;
-      }
+.meal-image {
+  width: 100%; /* Full width inside its container */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
 
-      .meal-name {
-        font-size: 32px;
-        font-weight: bold;
-        margin: 0;
-      }
+.meal-info {
+  flex: 2; /* Take up more space */
+  margin-left: 20px;
+}
 
-      .meal-description {
-        font-size: 18px;
-        color: #6c757d;
-        margin: 10px 0;
-      }
+.meal-name {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
 
-      .meal-price {
-        font-size: 24px;
-        font-weight: bold;
-        color: #28a745;
-        margin-bottom: 20px;
-      }
+.meal-description {
+  font-size: 18px;
+  color: #6c757d;
+  margin: 10px 0;
+}
 
-      .order-form input {
-        margin-bottom: 15px;
-      }
+.meal-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 20px;
+}
 
-      .size-options label {
-        margin-right: 10px;
-      }
+.order-form input {
+  margin-bottom: 15px;
+}
 
-      /* //////////////////////////////// */
-      .btn-orange-dark {
-        background-color: rgb(252, 145, 87) !important;
-        color: black;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-      }
+.size-options label {
+  margin-right: 10px;
+}
+/* //////////////////////////////// */
+.btn-orange-dark {
+  background-color: rgb(252, 145, 87) !important; 
+  color: black; 
+  border: none; 
+  padding: 10px 20px;
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+}
 
-      .btn-orange-dark:hover {
-        background-color: rgb(248, 120, 51) !important;
-      }
-    </style>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="/css/logstyle.css" />
-    <link rel="stylesheet" href="/css/popup.css" />
-  </head>
+.btn-orange-dark:hover {
+  background-color:  rgb(248, 120, 51) !important; 
+ 
+}
 
-  <body>
-    <nav class="navbar navbar-expand-lg sticky-top box-shadow">
-      <div class="container">
-        <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link p-2 p-lg-3 fs-5 active"
-                aria-current="page"
-                href=""
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link p-2 p-lg-3 fs-5 nav-sign openPopup"
-                id="openPopup1"
-                href=""
-                >Sign Up</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup"
-                id="openPopup2"
-                href=""
-                >Login</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup" href=""
-                ><span id="userName"></span
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link p-2 p-lg-3 fs-5 nav-log"
-                id="logOutBtn"
-                href=""
-                style="display: none"
-                >Log out</a
-              >
-            </li>
-          </ul>
-          <form class="p-2 p-lg-3 d-none d-lg-flex" id="search-form">
-            <input
-              class="form-control"
-              list="datalistOptions"
-              id="exampleDataList"
-              placeholder="Search Restaurants..."
-            />
-            <datalist id="datalistOptions">
-              <option value="sushi"></option>
-              <option value="sea food"></option>
-              <option value="healthy food"></option>
-              <option value="dessert"></option>
-              <option value="coffee"></option>
-            </datalist>
-
-            <button class="btn ms-2" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <div id="popup" class="popup">
-      <main
-        class="d-flex justify-content-center align-items-center"
-        style="position: relative"
-        class="popup-content"
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top box-shadow">
+    <div class="container">
+      <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
       >
-        <section
-          class="d-flex log-form rounded-2 shadow p-3 mb-5 bg-body-tertiary rounded formVisible"
-        >
-          <section class="signup background">
-            <form
-              action="pro.html"
-              class="d-flex flex-column"
-              style="opacity: 0; visibility: hidden"
-              id="signform"
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link p-2 p-lg-3 fs-5 active"
+              aria-current="page"
+              href=""
+              >Home</a
             >
-              <span id="closePopup" class="close">&times;</span>
-              <div class="mb-3 mt-3 sign">
-                <label for="firstname">First name:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="firstname"
-                  placeholder="Enter first name"
-                  name="firstname"
-                  required
-                />
-                <label for="lastname">Last name:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lastname"
-                  placeholder="Enter last name"
-                  name="lastname"
-                  required
-                />
-                <label for="signemail" class="form-label">Email:</label>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-2 p-lg-3 fs-5 nav-sign openPopup"
+              id="openPopup1"
+              href=""
+              >Sign Up</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup"
+              id="openPopup2"
+              href=""
+              >Login</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup" href=""
+              ><span id="userName"></span
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-2 p-lg-3 fs-5 nav-log"
+              id="logOutBtn"
+              href=""
+              style="display: none"
+              >Log out</a
+            >
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+  <div id="popup" class="popup">
+    <main
+      class="d-flex justify-content-center align-items-center"
+      style="position: relative"
+      class="popup-content"
+    >
+      <section
+        class="d-flex log-form rounded-2 shadow p-3 mb-5 bg-body-tertiary rounded formVisible"
+      >
+        <section class="signup background">
+          <form
+            action="pro.html"
+            class="d-flex flex-column"
+            style="opacity: 0; visibility: hidden"
+            id="signform"
+          >
+            <span id="closePopup" class="close">&times;</span>
+            <div class="mb-3 mt-3 sign">
+              <label for="firstname">First name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                placeholder="Enter first name"
+                name="firstname"
+                required
+              />
+              <label for="lastname">Last name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                placeholder="Enter last name"
+                name="lastname"
+                required
+              />
+              <label for="signemail" class="form-label">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="signemail"
+                placeholder="Enter email"
+                name="signemail"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="signpwd"
+                placeholder="Enter password"
+                name="signpswd"
+                required
+              />
+            </div>
+            <button type="submit" class="btn orange" id="signbtn">
+              Sign up
+            </button>
+            <div class="text-center mt-3">
+              <p>
+                Already have an account?
+                <a href="" class="loglink">Login</a>
+              </p>
+            </div>
+          </form>
+        </section>
+        <section id="login" class="login">
+          <form
+            action="/action_page.php"
+            class="d-flex flex-column"
+            id="loginform"
+          >
+            <span id="closePopup2" class="close">&times;</span>
+            <div class="mb-3 mt-3">
+              <label for="logemail" class="form-label">Email:</label>
+              <div class="d-flex align-items-center">
+                <i class="fa-regular fa-user pe-2"></i>
                 <input
                   type="email"
                   class="form-control"
-                  id="signemail"
+                  id="logemail"
                   placeholder="Enter email"
-                  name="signemail"
-                  required
+                  name="logemail"
                 />
               </div>
-              <div class="mb-3">
-                <label for="pwd" class="form-label">Password:</label>
+            </div>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Password:</label>
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-lock pe-2"></i>
                 <input
                   type="password"
                   class="form-control"
-                  id="signpwd"
+                  id="logpwd"
                   placeholder="Enter password"
-                  name="signpswd"
-                  required
+                  name="logpswd"
                 />
               </div>
-              <button type="submit" class="btn orange" id="signbtn">
-                Sign up
-              </button>
-              <div class="text-center mt-3">
-                <p>
-                  Already have an account?
-                  <a href="" class="loglink">Login</a>
-                </p>
-              </div>
-            </form>
-          </section>
-          <section id="login" class="login">
-            <form
-              action="/action_page.php"
-              class="d-flex flex-column"
-              id="loginform"
-            >
-              <span id="closePopup2" class="close">&times;</span>
-              <div class="mb-3 mt-3">
-                <label for="logemail" class="form-label">Email:</label>
-                <div class="d-flex align-items-center">
-                  <i class="fa-regular fa-user pe-2"></i>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="logemail"
-                    placeholder="Enter email"
-                    name="logemail"
-                  />
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="pwd" class="form-label">Password:</label>
-                <div class="d-flex align-items-center">
-                  <i class="fa-solid fa-lock pe-2"></i>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="logpwd"
-                    placeholder="Enter password"
-                    name="logpswd"
-                  />
-                </div>
-              </div>
-              <div class="form-check mb-3">
-                <label class="form-check-label">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="remember"
-                    id="remembercheck"
-                  />
-                  Remember me
-                </label>
-              </div>
-              <button type="submit" class="btn orange mt-4" id="logbtn">
-                Login
-              </button>
-              <div class="text-center mt-3">
-                <p>
-                  Don't have an account?
-                  <a href="" class="signlink">Create an account</a>
-                </p>
-              </div>
-            </form>
-          </section>
-        </section>
-      </main>
-    </div>
-    <div class="container my-5">
-      <div class="meal-details-card d-flex justify-content-between">
-        <div class="meal-image-container">
-          <img id="meal-image" class="meal-image" alt="Meal" />
-        </div>
-        <div class="meal-info">
-          <h1 id="meal-name" class="meal-name">Meal Name</h1>
-          <p id="meal-description" class="meal-description">
-            Meal description goes here.
-          </p>
-          <p id="meal-price" class="meal-price">$0.00</p>
-          <!-- Order Form -->
-          <form id="order-form" class="order-form">
-            <label for="quantity">Quantity:</label>
-            <input
-              type="number"
-              id="quantity"
-              class="form-control"
-              placeholder="Enter quantity"
-              min="1"
-              value="1"
-            />
-
-            <label>Size:</label>
-            <div class="size-options mb-3">
-              <label>
-                <input type="radio" name="size" value="Small" checked /> Small
-              </label>
-              <label>
-                <input type="radio" name="size" value="Medium" /> Medium
-              </label>
-              <label>
-                <input type="radio" name="size" value="Large" /> Large
+            </div>
+            <div class="form-check mb-3">
+              <label class="form-check-label">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="remember"
+                  id="remembercheck"
+                />
+                Remember me
               </label>
             </div>
-
-            <button
-              type="button"
-              id="order-button"
-              class="btn btn-orange-dark w-100 mt-3"
-            >
-              Place Order
+            <button type="submit" class="btn orange mt-4" id="logbtn">
+              Login
             </button>
+            <div class="text-center mt-3">
+              <p>
+                Don't have an account?
+                <a href="" class="signlink">Create an account</a>
+              </p>
+            </div>
           </form>
-        </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+
+
+  <div class="container my-5">
+    <div class="meal-details-card d-flex justify-content-between">
+      <div class="meal-image-container">
+        <img id="meal-image" class="meal-image" alt="Meal">
+      </div>
+      <div class="meal-info">
+        <h1 id="meal-name" class="meal-name">Meal Name</h1>
+        <p id="meal-description" class="meal-description">Meal description goes here.</p>
+        <p id="meal-price" class="meal-price">$0.00</p>
+        <!-- Order Form -->
+        <form id="order-form" class="order-form">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" class="form-control" placeholder="Enter quantity" min="1" value="1">
+  
+          <label>Size:</label>
+          <div class="size-options mb-3">
+            <label>
+              <input type="radio" name="size" value="Small" checked> Small
+            </label>
+            <label>
+              <input type="radio" name="size" value="Medium"> Medium
+            </label>
+            <label>
+              <input type="radio" name="size" value="Large"> Large
+            </label>
+          </div>
+  
+          <button type="button" id="order-button" class="btn btn-orange-dark w-100 mt-3">Place Order</button>
+        </form>
       </div>
     </div>
+  </div>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-      const mealData = {
-        1: {
-          name: "Shio ",
-          description: "A delicious ramen with rich flavors.",
-          price: "$28.00",
-          image: "images/images (13).jpeg",
-        },
-        2: {
-          name: "Shoyu ",
-          description: "A savory soy-based ramen.",
-          price: "$30.00",
-          image: "images/images (7).jpeg",
-        },
-        3: {
-          name: "Miso ",
-          description: "A ramen with miso-based broth.",
-          price: "$25.00",
-          image: "images/WhatsApp Image 2025-01-24 at 09.16.38_61534bd3.jpg",
-        },
-        4: {
-          name: "Lemon Tea",
-          description: "A refreshing cup of lemon tea.",
-          price: "$12.00",
-          image: "images/WhatsApp Image 2025-01-24 at 09.16.40_993364ae.jpg",
-        },
-        5: {
-          name: "Orange Juice",
-          description: "Freshly squeezed orange juice.",
-          price: "$15.00",
-          image: "images/WhatsApp Image 2025-01-24 at 09.16.41_32b4829e.jpg",
-        },
-        6: {
-          name: "Lemon Squash",
-          description: "A cool and tangy lemon squash.",
-          price: "$14.00",
-          image: "images/WhatsApp Image 2025-01-24 at 09.16.41_45bcb578.jpg",
-        },
-        7: {
-          name: "Lemon Tea",
-          description: "A refreshing cup of lemon tea.",
-          price: "$12.00",
-          image: "images/Lemon.jpg",
-        },
-        8: {
-          name: "Orange Juice",
-          description: "Freshly squeezed orange juice.",
-          price: "$15.00",
-          image: "images/Orange Juice.jpg",
-        },
-        9: {
-          name: "Lemon Squash",
-          description: "A cool and tangy lemon squash.",
-          price: "$14.00",
-          image: "images/Lemon Squash.jpg",
-        },
-      };
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const mealData = {
+      1: { name: "Big Mac", description: "A classic McDonald's burger with two all-beef patties, special sauce, lettuce, cheese, pickles, and onions on a sesame seed bun.", price: "$5.99", image: "images/bigmac.jpg" },
+      2: { name: "McChicken", description: "A crispy chicken sandwich with lettuce and mayo on a toasted bun.", price: "$4.99", image: "images/mcchicken.jpg" },
+      3: { name: "French Fries", description: "Golden, crispy, and perfectly salted French fries.", price: "$2.99", image: "images/fries.jpg" },
+      4: { name: "McFlurry", description: "Creamy soft serve blended with your favorite mix-ins.", price: "$3.99", image: "images/mcflurry.jpg" },
+      5: { name: "Filet-O-Fish", description: "A crispy fish fillet with tartar sauce and cheese on a soft bun.", price: "$4.49", image: "images/filetofish.jpg" },
+      6: { name: "Apple Pie", description: "A warm, crispy, and sweet apple pie.", price: "$1.99", image: "applepie.jpg" },
+      7: { name: "Chicken Nuggets", description: "Tender, crispy chicken nuggets served with your choice of dipping sauce.", price: "$4.99", image: "images/nuggets.jpg" },
+      8: { name: "McMuffin", description: "A breakfast classic with eggs, cheese, and your choice of sausage or bacon on an English muffin.", price: "$3.49", image: "images/mcmuffin.jpg" },
+      9: { name: "Vanilla Shake", description: "A rich and creamy vanilla-flavored milkshake.", price: "$3.49", image: "vanillashake.jpg" },
+      10: { name: "Whopper", description: "Burger King's flame-grilled signature burger with fresh lettuce, tomatoes, and mayo.", price: "$6.49", image: "images/whopper.jpg" },
+      11: { name: "Onion Rings", description: "Crispy, golden onion rings served with dipping sauce.", price: "$3.49", image: "images/onionrings.jpg" },
+      12: { name: "Chicken Fries", description: "Strips of crispy chicken served with dipping sauce.", price: "$4.99", image: "images/chickenfries.jpg" },
+      13: { name: "Cheeseburger", description: "A juicy burger topped with melted cheese and classic condiments.", price: "$3.99", image: "images/cheeseburger.jpg" },
+      14: { name: "BK Stacker", description: "A double beef patty burger with cheese, bacon, and special sauce.", price: "$5.99", image: "images/bkstacker.jpg" },
+      15: { name: "French Toast Sticks", description: "Sweet and crispy French toast sticks served with syrup.", price: "$2.99", image: "images/frenchtoast.jpg" },
+      16: { name: "Mozzarella Sticks", description: "Crispy mozzarella sticks served with marinara sauce.", price: "$3.99", image: "images/mozzarellasticks.jpg" },
+      17: { name: "Chocolate Shake", description: "A thick, creamy, and chocolatey milkshake.", price: "$4.49", image: "images/chocolateshake.jpg" },
+      18: { name: "Soft Drink", description: "A refreshing carbonated soft drink of your choice.", price: "$1.99", image: "images/softdrink.jpg" }
+    };
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const mealId = urlParams.get("mealId");
+    
 
-      const displayMealDetails = () => {
-        const meal = mealData[mealId];
-        if (meal) {
-          document.getElementById("meal-name").textContent = meal.name;
-          document.getElementById("meal-description").textContent =
-            meal.description;
-          document.getElementById("meal-price").textContent = meal.price;
-          document.getElementById("meal-image").src = meal.image;
-        } else {
-          document.body.innerHTML =
-            '<p class="text-center mt-5">Meal details not found.</p>';
-        }
-      };
 
-      const handleOrder = () => {
-        const quantity = document.getElementById("quantity").value;
-        const size = document.querySelector('input[name="size"]:checked').value;
+const urlParams = new URLSearchParams(window.location.search);
+const mealId = urlParams.get('mealId');
 
-        if (quantity <= 0) {
-          alert("Please enter a quantity greater than 0.");
-          return;
-        }
+const displayMealDetails = () => {
+  const meal = mealData[mealId];
+  if (meal) {
+    document.getElementById('meal-name').textContent = meal.name;
+    document.getElementById('meal-description').textContent = meal.description;
+    document.getElementById('meal-price').textContent = meal.price;
+    document.getElementById('meal-image').src = meal.image;
 
-        alert(
-          `Order placed!\n\nMeal: ${mealData[mealId].name}\nQuantity: ${quantity}\nSize: ${size}`
-        );
-      };
+    // Store the base price for calculation
+    document.getElementById('meal-price').dataset.basePrice = parseFloat(meal.price.replace('$', ''));
+  } else {
+    document.body.innerHTML = '<p class="text-center mt-5">Meal details not found.</p>';
+  }
+};
 
-      document
-        .getElementById("order-button")
-        .addEventListener("click", handleOrder);
+const updatePrice = () => {
+  const quantity = parseInt(document.getElementById('quantity').value) || 1;
+  const basePrice = parseFloat(document.getElementById('meal-price').dataset.basePrice);
+  const totalPrice = (basePrice * quantity).toFixed(2);
+  document.getElementById('meal-price').textContent = `$${totalPrice}`;
+};
 
-      displayMealDetails();
-    </script>
-    <script src=" js/all.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src=" js/script.js"></script>
-    <script src="js/popup.js"></script>
-    <script src="js/logscript.js"></script>
-  </body>
+const handleOrder = () => {
+  const quantity = parseInt(document.getElementById('quantity').value);
+  const size = document.querySelector('input[name="size"]:checked').value;
+  
+  if (quantity <= 0) {
+    alert("Please enter a quantity greater than 0.");
+    return;
+  }
+
+  const meal = mealData[mealId];
+  const basePrice = parseFloat(meal.price.replace('$', ''));
+  const totalPrice = (basePrice * quantity).toFixed(2);
+
+  alert(`Order placed!\n\nMeal: ${meal.name}\nQuantity: ${quantity}\nSize: ${size}\nTotal Price: $${totalPrice}`);
+};
+
+document.getElementById('order-button').addEventListener('click', handleOrder);
+document.getElementById('quantity').addEventListener('input', updatePrice);
+
+displayMealDetails();
+
+  </script>
+  <script src="js/popup.js"></script>
+  <script src="js/logscript.js"></script>
+</body>
 </html>
