@@ -65,6 +65,17 @@
     <div class="form-container">
       <h1>Booking</h1>
       <form id="bookingForm" class="form">
+
+        <label for="resturants">Restaurants *</label>
+        <select id="resturants" required>
+          <option value="1">McDonald's</option>
+          <option value="2">Burger King</option>
+          <option value="3">Bazooka</option>
+          <option value="4">KFC</option>
+          <option value="5">Pizza Hut</option>
+          <option value="6">Heart Attack</option>
+        </select>
+
         <label for="date">Date *</label>
         <input type="date" id="date" required>
 
@@ -103,7 +114,7 @@
           <label id="check" for="newsletter">Subscribe me to the newsletter</label>
         </div>
 
-        <button class="btn-form" type="submit">Book a table</button>
+        <button class="btn-form" type="submit" onclick="redirectToPage()">Book a table</button>
       </form>
     </div>
   </main>
@@ -113,48 +124,41 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script>
-    document.getElementById('bookingForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Booking submitted successfully!');
-    });
-
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^0(10[0-9]|11[0-9]|12[0-9]|15[0-9])[0-9]{7}$/;
+
+const bookingForm = document.getElementById("bookingForm");
+bookingForm.addEventListener("submit", function (event) {
+  event.preventDefault(); 
+
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  // Validation
+  if (firstName === "") {
+    alert("Please enter your first name.");
+    return;
+  }
+  if (lastName === "") {
+    alert("Please enter your last name.");
+    return;
+  }
+  if (!emailRegex.test(email)) {
+    alert("Invalid email address. Please check your email.");
+    return;
+  }
+  if (!phoneRegex.test(phone)) {
+    alert("Invalid phone number. Please enter a valid 11-digit number.");
+    return;
+  }
+
+  window.location.href = "http://127.0.0.1:5501/ziad/tablereservation.html";
+});
 
 
-    const bookingForm = document.getElementById("bookingForm");
-    bookingForm.addEventListener("submit", function (event) {
 
-      event.preventDefault();
-
-
-      const firstName = document.getElementById("firstName").value.trim();
-      const lastName = document.getElementById("lastName").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-
-      // Validation
-      if (firstName === "") {
-        alert("Please enter your first name.");
-        return;
-      }
-      if (lastName === "") {
-        alert("Please enter your last name.");
-        return;
-      }
-      if (!emailRegex.test(email)) {
-        alert("Invalid email address. Please check your email.");
-        return;
-      }
-      if (!phoneRegex.test(phone)) {
-        alert("Invalid phone number. Please enter a valid 10-digit number.");
-        return;
-      }
-
-
-      alert("Booking submitted successfully!");
-      bookingForm.reset();
-    });
   </script>
 </body>
 
