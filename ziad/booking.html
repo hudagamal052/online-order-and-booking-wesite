@@ -1,165 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>booking page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Raleway:ital,wght@0,600;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="booking.css" />
+    <link rel="stylesheet" href="/css/logstyle.css" />
+    <link rel="stylesheet" href="/css/popup.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>booking page</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Raleway:ital,wght@0,600;1,600&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="booking.css">
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top box-shadow">
+      <div class="container">
+        <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 active"
+                aria-current="page"
+                href=""
+                id="home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 nav-sign openPopup"
+                id="openPopup1"
+                href=""
+                >Sign Up</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup"
+                id="openPopup2"
+                href=""
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup" href=""
+                ><span id="userName"></span
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3 fs-5 nav-log"
+                id="logOutBtn"
+                href=""
+                style="display: none"
+                >Log out</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="popup" class="popup">
+      <main
+        class="d-flex justify-content-center align-items-center"
+        style="position: relative"
+        class="popup-content"
+      >
+        <section
+          class="d-flex log-form rounded-2 shadow p-3 mb-5 bg-body-tertiary rounded formVisible"
+        >
+          <section class="signup background">
+            <form
+              action="pro.html"
+              class="d-flex flex-column"
+              style="opacity: 0; visibility: hidden"
+              id="signform"
+            >
+              <span id="closePopup" class="close">&times;</span>
+              <div class="mb-3 mt-3 sign">
+                <label for="firstname">First name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstname"
+                  placeholder="Enter first name"
+                  name="firstname"
+                  required
+                />
+                <label for="lastname">Last name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+                  placeholder="Enter last name"
+                  name="lastname"
+                  required
+                />
+                <label for="signemail" class="form-label">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signemail"
+                  placeholder="Enter email"
+                  name="signemail"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signpwd"
+                  placeholder="Enter password"
+                  name="signpswd"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn orange" id="signbtn">
+                Sign up
+              </button>
+              <div class="text-center mt-3">
+                <p>
+                  Already have an account?
+                  <a href="" class="loglink">Login</a>
+                </p>
+              </div>
+            </form>
+          </section>
+          <section id="login" class="login">
+            <form
+              action="/action_page.php"
+              class="d-flex flex-column"
+              id="loginform"
+            >
+              <span id="closePopup2" class="close">&times;</span>
+              <div class="mb-3 mt-3">
+                <label for="logemail" class="form-label">Email:</label>
+                <div class="d-flex align-items-center">
+                  <i class="fa-regular fa-user pe-2"></i>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="logemail"
+                    placeholder="Enter email"
+                    name="logemail"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-lock pe-2"></i>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="logpwd"
+                    placeholder="Enter password"
+                    name="logpswd"
+                  />
+                </div>
+              </div>
+              <div class="form-check mb-3">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="remember"
+                    id="remembercheck"
+                  />
+                  Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn orange mt-4" id="logbtn">
+                Login
+              </button>
+              <div class="text-center mt-3">
+                <p>
+                  Don't have an account?
+                  <a href="" class="signlink">Create an account</a>
+                </p>
+              </div>
+            </form>
+          </section>
+        </section>
+      </main>
+    </div>
 
-</head>
+    <main>
+      <div class="image-container">
+        <img src="photos/booking.png" alt="Delicious Burger" />
+      </div>
+      <div class="form-container">
+        <h1>Booking</h1>
+        <form id="bookingForm" class="form">
+          <label for="resturants">Restaurants *</label>
+          <select id="resturants" required>
+            <option value="1">McDonald's</option>
+            <option value="2">Burger King</option>
+            <option value="3">Bazooka</option>
+            <option value="4">KFC</option>
+            <option value="5">Pizza Hut</option>
+            <option value="6">Heart Attack</option>
+          </select>
 
-<body>
-  <nav class="navbar navbar-expand-lg sticky-top box-shadow">
-    <div class="container">
-      <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3 fs-5 active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3  fs-5 " href="#">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link p-2 p-lg-3 fs-5 " href="#">Login</a>
-          </li>
-        </ul>
-        <form class=" p-2 p-lg-3 d-none d-lg-flex" id="search-form">
-          <input class="form-control" list="datalistOptions" placeholder="Search Restaurants...">
-          <datalist id="datalistOptions">
-            <option value="sushi">
-            <option value="sea food">
-            <option value="healthy food">
-            <option value="dessert">
-            <option value="coffee">
-          </datalist>
-          <button class="btn ms-2" type="submit">Search</button>
+          <label for="date">Date *</label>
+          <input type="date" id="date" required />
+
+          <label for="time">Time *</label>
+          <select id="time" required>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+          </select>
+
+          <label for="people">People *</label>
+          <select id="people" required>
+            <option value="1">1 person</option>
+            <option value="2">2 persons</option>
+            <option value="3">3 persons</option>
+            <option value="4">4 persons</option>
+          </select>
+
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" required />
+
+          <label for="lastName">Last Name *</label>
+          <input type="text" id="lastName" required />
+
+          <label for="email">Email *</label>
+          <input type="email" id="email" required />
+
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" required />
+
+          <label for="comments">Comments (optional)</label>
+          <textarea id="comments"></textarea>
+
+          <div class="checkbox-container">
+            <input type="checkbox" id="newsletter" />
+            <label id="check" for="newsletter"
+              >Subscribe me to the newsletter</label
+            >
+          </div>
+
+          <button class="btn-form" type="submit" onclick="redirectToPage()">
+            Book a table
+          </button>
         </form>
       </div>
-    </div>
-  </nav>
+    </main>
+    <footer class="footer">
+      <ul class="nav justify-content-center pb-3 mb-3">
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2" id="home2">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link px-2 openPopup" id="openPopup3">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link px-2 openPopup" id="openPopup4">Login</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2">Contact Us</a>
+        </li>
+      </ul>
+      <p class="fs-5 copy text-center">©Copyright 2025</p>
+    </footer>
 
-  <main>
-    <div class="image-container">
-      <img src="photos/booking.png" alt="Delicious Burger">
-    </div>
-    <div class="form-container">
-      <h1>Booking</h1>
-      <form id="bookingForm" class="form">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const phoneRegex = /^0(10[0-9]|11[0-9]|12[0-9]|15[0-9])[0-9]{7}$/;
 
-        <label for="resturants">Restaurants *</label>
-        <select id="resturants" required>
-          <option value="1">McDonald's</option>
-          <option value="2">Burger King</option>
-          <option value="3">Bazooka</option>
-          <option value="4">KFC</option>
-          <option value="5">Pizza Hut</option>
-          <option value="6">Heart Attack</option>
-        </select>
+      const bookingForm = document.getElementById("bookingForm");
+      bookingForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-        <label for="date">Date *</label>
-        <input type="date" id="date" required>
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
 
-        <label for="time">Time *</label>
-        <select id="time" required>
-          <option value="18:00">18:00</option>
-          <option value="19:00">19:00</option>
-          <option value="20:00">20:00</option>
-        </select>
+        // Validation
+        if (firstName === "") {
+          alert("Please enter your first name.");
+          return;
+        }
+        if (lastName === "") {
+          alert("Please enter your last name.");
+          return;
+        }
+        if (!emailRegex.test(email)) {
+          alert("Invalid email address. Please check your email.");
+          return;
+        }
+        if (!phoneRegex.test(phone)) {
+          alert("Invalid phone number. Please enter a valid 11-digit number.");
+          return;
+        }
 
-        <label for="people">People *</label>
-        <select id="people" required>
-          <option value="1">1 person</option>
-          <option value="2">2 persons</option>
-          <option value="3">3 persons</option>
-          <option value="4">4 persons</option>
-        </select>
-
-        <label for="firstName">First Name *</label>
-        <input type="text" id="firstName" required>
-
-        <label for="lastName">Last Name *</label>
-        <input type="text" id="lastName" required>
-
-        <label for="email">Email *</label>
-        <input type="email" id="email" required>
-
-        <label for="phone">Phone *</label>
-        <input type="tel" id="phone" required>
-
-        <label for="comments">Comments (optional)</label>
-        <textarea id="comments"></textarea>
-
-        <div class="checkbox-container">
-          <input type="checkbox" id="newsletter">
-          <label id="check" for="newsletter">Subscribe me to the newsletter</label>
-        </div>
-
-        <button class="btn-form" type="submit" onclick="redirectToPage()">Book a table</button>
-      </form>
-    </div>
-  </main>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script>
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const phoneRegex = /^0(10[0-9]|11[0-9]|12[0-9]|15[0-9])[0-9]{7}$/;
-
-const bookingForm = document.getElementById("bookingForm");
-bookingForm.addEventListener("submit", function (event) {
-  event.preventDefault(); 
-
-  const firstName = document.getElementById("firstName").value.trim();
-  const lastName = document.getElementById("lastName").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-
-  // Validation
-  if (firstName === "") {
-    alert("Please enter your first name.");
-    return;
-  }
-  if (lastName === "") {
-    alert("Please enter your last name.");
-    return;
-  }
-  if (!emailRegex.test(email)) {
-    alert("Invalid email address. Please check your email.");
-    return;
-  }
-  if (!phoneRegex.test(phone)) {
-    alert("Invalid phone number. Please enter a valid 11-digit number.");
-    return;
-  }
-
-  window.location.href = "http://127.0.0.1:5501/ziad/tablereservation.html";
-});
-
-
-
-  </script>
-</body>
-
+        window.location.href =
+          "http://127.0.0.1:5501/ziad/tablereservation.html";
+      });
+    </script>
+    <script src="../js/logscript.js"></script>
+    <script src="/js/popup.js"></script>
+  </body>
 </html>
