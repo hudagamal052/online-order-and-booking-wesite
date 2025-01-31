@@ -2,6 +2,8 @@
 const popup = document.getElementById("popup");
 const openPopupButton1 = document.getElementById("openPopup1");
 const openPopupButton2 = document.getElementById("openPopup2");
+const openPopupButton3 = document.getElementById("openPopup3");
+const openPopupButton4 = document.getElementById("openPopup4");
 const closePopupButton = document.getElementById("closePopup");
 const closePopupButton2 = document.querySelector("#closePopup2");
 const closePopupButton3 = document.querySelector("#closePopup2");
@@ -41,6 +43,33 @@ openPopupButton2.addEventListener("click", () => {
     signform.style.visibility = "hidden";
     signform.style.transition = "0s";
   })();
+});
+// Open the pop-up when the third button is clicked
+openPopupButton3.addEventListener("click", (event) => {
+  openPopup();
+  (function () {
+    logbtn.style.paddingTop = "115px";
+    signup.classList.remove("background");
+    signform.style.opacity = "100";
+    signform.style.visibility = "visible";
+    login.classList.add("background");
+    loginform.style.visibility = "hidden";
+  })();
+  event.preventDefault();
+});
+// Open the pop-up when the fourth button is clicked
+openPopupButton4.addEventListener("click", (event) => {
+  openPopup();
+  (function () {
+    logbtn.style.paddingTop = "5px";
+    login.classList.remove("background");
+    loginform.style.opacity = "100";
+    loginform.style.visibility = "visible";
+    signup.classList.add("background");
+    signform.style.visibility = "hidden";
+    signform.style.transition = "0s";
+  })();
+  event.preventDefault();
 });
 
 // Close the pop-up when the close button is clicked
