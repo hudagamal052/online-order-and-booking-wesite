@@ -56,27 +56,3 @@
   border: none;
   font-weight: bold;
 }
-
-/* footer {
-  background-color: var(--light-color);
-  height: 200px;
-  padding-top: 50px;
-}
-
-footer .nav-link {
-  color: black;
-  font-size: 1.3rem;
-}
-
-footer .nav-link:focus {
-  color: black;
-}
-
-footer .nav-link:hover {
-  font-weight: 500;
-  color: var(--background-color);
-}
-
-footer ul {
-  border-bottom: 1px solid black;
-} */
