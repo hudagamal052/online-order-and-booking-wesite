@@ -1,58 +1,82 @@
 /* Style for the pop-up container */
 .popup {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Black background with opacity */
-    z-index: 100000;
-    /* Sit on top */
-    justify-content: center;
-    align-items: center;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black background with opacity */
+  z-index: 100000;
+  /* Sit on top */
+  justify-content: center;
+  align-items: center;
 }
 
 /* Pop-up content */
 .popup-content {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 400px;
-    max-width: 100%;
-    /* Could be more or less, depending on screen size */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-    top: 50%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+  max-width: 100%;
+  /* Could be more or less, depending on screen size */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  top: 50%;
 }
 
 /* Close button */
 .close {
-    color: var(--background-color);
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+  color: var(--background-color);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 #closePopup {
-    align-self: flex-start;
-    border: none;
-    font-weight: bold;
+  align-self: flex-start;
+  border: none;
+  font-weight: bold;
 }
 
 #closePopup2 {
-    align-self: flex-end;
-    border: none;
-    font-weight: bold;
+  align-self: flex-end;
+  border: none;
+  font-weight: bold;
 }
+
+/* footer {
+  background-color: var(--light-color);
+  height: 200px;
+  padding-top: 50px;
+}
+
+footer .nav-link {
+  color: black;
+  font-size: 1.3rem;
+}
+
+footer .nav-link:focus {
+  color: black;
+}
+
+footer .nav-link:hover {
+  font-weight: 500;
+  color: var(--background-color);
+}
+
+footer ul {
+  border-bottom: 1px solid black;
+} */

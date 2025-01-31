@@ -112,7 +112,10 @@ logbtn.onclick = function (e) {
 if (JSON.parse(localStorage.getItem("currentUser"))) {
   openPopupButton1.style.display = "none";
   openPopupButton2.style.display = "none";
-  userName.innerHTML = "Welcome " + JSON.parse(localStorage.getItem("currentUser")).name + " !";
+  openPopupButton3.style.display = "none";
+  openPopupButton4.style.display = "none";
+  userName.innerHTML =
+    "Welcome " + JSON.parse(localStorage.getItem("currentUser")).name + " !";
   logOutBtn.style.display = "block";
 } else {
   userName.innerHTML = "";
@@ -124,6 +127,20 @@ logOutBtn.onclick = function () {
   userName.innerHTML = "";
   openPopupButton1.style.display = "block";
   openPopupButton2.style.display = "block";
+  openPopupButton3.style.display = "block";
+  openPopupButton4.style.display = "block";
   logOutBtn.style.display = "none";
   localStorage.setItem("currentUser", null);
 };
+
+let home = document.getElementById("home");
+let home2 = document.getElementById("home2");
+
+home.addEventListener("click", function (e) {
+  e.preventDefault();
+  location.href = "index.html";
+});
+home2.addEventListener("click", function (e) {
+  e.preventDefault();
+  location.href = "index.html";
+});
