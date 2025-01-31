@@ -1,12 +1,3 @@
-
-document.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
 // Sample restaurant data
 const restaurants = [
     {
@@ -58,6 +49,30 @@ const restaurants = [
         specialOffer: false,
     }
 ];
+document.getElementById('search-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form from reloading the page
+
+    const searchInput = document.getElementById('exampleDataList').value.trim().toLowerCase();
+
+    // Find restaurant by name
+    const foundRestaurant = restaurants.find(r => r.name.toLowerCase().includes(searchInput));
+
+    if (foundRestaurant) {
+        // Redirect to the restaurant's menu page
+        window.location.href = `menu.html?restaurantId=${foundRestaurant.id}`;
+    } else {
+        alert("Restaurant not found! Please try another name.");
+    }
+});
+
+document.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
 
 // Get favorites from localStorage
 const getFavorites = () => {
@@ -118,18 +133,4 @@ const displayRestaurants = () => {
 
 // Call the function to display restaurants
 displayRestaurants();
-document.getElementById('search-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent form from reloading the page
 
-    const searchInput = document.getElementById('exampleDataList').value.trim().toLowerCase();
-
-    // Find restaurant by name
-    const foundRestaurant = restaurants.find(r => r.name.toLowerCase().includes(searchInput));
-
-    if (foundRestaurant) {
-        // Redirect to the restaurant's menu page
-        window.location.href = `menu.html?restaurantId=${foundRestaurant.id}`;
-    } else {
-        alert("Restaurant not found! Please try another name.");
-    }
-});
