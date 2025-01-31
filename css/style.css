@@ -1,15 +1,9 @@
 :root {
   --background-color: #ff5a01;
-  --background-image: url(../images/background.jpg);
   --light-color: white;
+  --background-image: url(../images/background.jpg);
 }
 
-body {
-  /* background-image: var(--background-image);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
-}
 
 .orbitron-font {
   font-family: "Orbitron", serif;
@@ -29,26 +23,32 @@ body {
   transition: 0.3s ease-in;
   text-align: center;
 }
+
 .main-sec:hover {
   box-shadow: 0.5px 0.5px 7px #b1b1b1;
   background-size: 110%;
 }
+
 .main-sec h1 {
   font-size: 60px;
   padding-top: 10px;
   margin-bottom: 40px;
 }
+
 .highlight {
   color: #af4702;
 }
+
 .main-sec p {
   font-size: 18px;
 }
+
 .header h1 {
   font-size: 24px;
   font-weight: bold;
   color: #222;
 }
+
 .navbar {
   background-color: var(--light-color);
   font-size: large;

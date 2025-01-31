@@ -1,789 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Menu</title>
-    <link rel="stylesheet" href="css/style.css" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
 
-    <style>
-      body {
-        background-color: #f8f9fa;
-        font-family: Arial, sans-serif;
-        background-size: cover;
-      }
-      /* nav */
-      .orbitron-font {
-        font-family: "Orbitron", serif;
-        font-optical-sizing: auto;
-        font-weight: 600;
-        font-style: normal;
-        color: var(--background-color);
-      }
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/logstyle.css" />
+  <link rel="stylesheet" href="css/popup.css" />
 
-      .navbar {
-        background-color: white;
-        font-size: large;
-      }
-      .navbar .navbar-nav .nav-link {
-        color: black;
-      }
+  <style>
+    :root {
+      --background-color: #ff5a01;
+      --light-color: white;
+    }
 
-      .navbar .navbar-nav .nav-link.active,
-      .navbar .navbar-nav .nav-link:hover {
-        color: rgb(252, 145, 87);
-        font-weight: bold;
-      }
+    body {
+      background-color: #f8f9fa;
+      background-size: cover;
+    }
 
-      .navbar-brand {
-        color: rgb(252, 145, 87);
-      }
-      .navbar-toggler {
-        color: black;
-        border-color: black;
-      }
+    .orbitron-font {
+      font-family: "Orbitron", serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+      color: var(--background-color);
+    }
 
-      .navbar-toggler:hover {
-        background-color: rgb(252, 145, 87);
-      }
-      .form-control:focus {
-        border-color: var(--background-color);
-        box-shadow: 0 0 0 0.25rem #ff5a015b;
-      }
+    .main-sec {
+      width: 100%;
+      height: 200px;
+      background-image: url("../images/background.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transition: 0.3s ease-in;
+      text-align: center;
+    }
 
-      .btn {
-        color: var(--background-color);
-        font-weight: bold;
-        border-color: var(--background-color);
-      }
+    .main-sec:hover {
+      box-shadow: 0.5px 0.5px 7px #b1b1b1;
+      background-size: 110%;
+    }
 
-      .btn:hover {
-        color: var(--light-color);
-        background-color: var(--background-color);
-        border-color: var(--background-color);
-      }
+    .main-sec h1 {
+      font-size: 60px;
+      padding-top: 10px;
+      margin-bottom: 40px;
+    }
 
-      .navbar-toggler {
-        color: var(--background-color);
-        border-color: var(--background-color);
-      }
+    .highlight {
+      color: #af4702;
+    }
 
-      .navbar-toggler:focus {
-        box-shadow: none;
-      }
+    .main-sec p {
+      font-size: 18px;
+    }
 
-      .navbar-toggler[aria-expanded="true"] {
-        box-shadow: 0 0 0 0.25rem;
-      }
-      .navbar.scrolled {
-        background-color: rgb(253, 178, 137) !important; /* خلفية برتقالية */
-        transition: background-color 0.3s ease; /* تأثير انتقال سلس */
-      }
+    .header h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #222;
+    }
 
-      /* menu */
+    .navbar {
+      background-color: var(--light-color);
+      font-size: large;
+    }
 
-      .menu-section {
-        margin-top: 30px;
-      }
-      .menu-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 15px;
-        text-align: center;
-      }
-      .card {
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        margin: 10px;
-        text-align: center;
-      }
-      .card img {
-        width: 100%;
-        height: 150px;
-        border-radius: 10px;
-        object-fit: cover;
-        margin-bottom: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
-      .card h2 {
-        font-size: 18px;
-        font-weight: bold;
-        margin: 10px 0;
-      }
-      .card .price {
-        font-size: 16px;
-        font-weight: bold;
-        color: #28a745;
-      }
-      @media (min-width: 576px) {
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 15px;
-        }
-      }
+    .navbar .navbar-nav .nav-link.active,
+    .navbar .navbar-nav .nav-link:hover {
+      color: var(--background-color);
+      font-weight: bold;
+    }
 
-      .menu-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
+    .form-control:focus {
+      border-color: var(--background-color);
+      box-shadow: 0 0 0 0.25rem #ff5a015b;
+    }
 
-      .menu-row {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
+    .btn {
+      color: var(--background-color);
+      font-weight: bold;
+      border-color: var(--background-color);
+    }
 
-      .card {
-        flex: 1;
-        max-width: 30%; /* Ensures 3 cards per row */
-        text-align: center;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background: #fff;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-      }
+    .btn:hover {
+      color: var(--light-color);
+      background-color: var(--background-color);
+      border-color: var(--background-color);
+    }
 
-      .card img {
-        width: 100%;
-        height: 150px;
-        border-radius: 8px;
+    .navbar-toggler {
+      color: var(--background-color);
+      border-color: var(--background-color);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-toggler[aria-expanded="true"] {
+      box-shadow: 0 0 0 0.25rem;
+    }
+
+    .footer {
+      background-color: var(--light-color);
+      height: 200px;
+    }
+
+    .footer .nav-link {
+      color: black;
+      font-size: 1.3rem;
+    }
+
+    .footer .nav-link:focus {
+      color: black;
+    }
+
+    .footer .nav-link:hover {
+      font-weight: 500;
+      color: var(--background-color);
+    }
+
+    .footer ul {
+      border-bottom: 1px solid black;
+    }
+
+    .copy {
+      color: var(--background-color);
+    }
+
+
+    /* menu */
+
+    .menu-section {
+      margin-top: 30px;
+    }
+
+    .menu-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .card .price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    @media (min-width: 576px) {
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
       }
-    </style>
-    <link rel="stylesheet" href="css/logstyle.css" />
-    <link rel="stylesheet" href="css/popup.css" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg sticky-top box-shadow">
-      <div class="container">
-        <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link p-2 p-lg-3 fs-5 active"
-                aria-current="page"
-                href=""
-                id="home"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link p-2 p-lg-3 fs-5 nav-sign openPopup"
-                id="openPopup1"
-                href=""
-                >Sign Up</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup"
-                id="openPopup2"
-                href=""
-                >Login</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup" href=""
-                ><span id="userName"></span
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link p-2 p-lg-3 fs-5 nav-log"
-                id="logOutBtn"
-                href=""
-                style="display: none"
-                >Log out</a
-              >
-            </li>
-          </ul>
-        </div>
+    }
+
+    .menu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .menu-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1;
+      max-width: 30%;
+      /* Ensures 3 cards per row */
+      text-align: center;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top box-shadow">
+    <div class="container">
+      <a class="navbar-brand orbitron-font fs-1" href="#">Gailak</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3 fs-5 active" aria-current="page" href="" id="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3 fs-5 nav-sign openPopup" id="openPopup1" href="">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup" id="openPopup2" href="">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3 fs-5 nav-log openPopup" href=""><span id="userName"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-2 p-lg-3 fs-5 nav-log" id="logOutBtn" href="" style="display: none">Log out</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <div id="popup" class="popup">
-      <main
-        class="d-flex justify-content-center align-items-center"
-        style="position: relative"
-        class="popup-content"
-      >
-        <section
-          class="d-flex log-form rounded-2 shadow p-3 mb-5 bg-body-tertiary rounded formVisible"
-        >
-          <section class="signup background">
-            <form
-              action="pro.html"
-              class="d-flex flex-column"
-              style="opacity: 0; visibility: hidden"
-              id="signform"
-            >
-              <span id="closePopup" class="close">&times;</span>
-              <div class="mb-3 mt-3 sign">
-                <label for="firstname">First name:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="firstname"
-                  placeholder="Enter first name"
-                  name="firstname"
-                  required
-                />
-                <label for="lastname">Last name:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lastname"
-                  placeholder="Enter last name"
-                  name="lastname"
-                  required
-                />
-                <label for="signemail" class="form-label">Email:</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="signemail"
-                  placeholder="Enter email"
-                  name="signemail"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="pwd" class="form-label">Password:</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="signpwd"
-                  placeholder="Enter password"
-                  name="signpswd"
-                  required
-                />
-              </div>
-              <button type="submit" class="btn orange" id="signbtn">
-                Sign up
-              </button>
-              <div class="text-center mt-3">
-                <p>
-                  Already have an account?
-                  <a href="" class="loglink">Login</a>
-                </p>
-              </div>
-            </form>
-          </section>
-          <section id="login" class="login">
-            <form
-              action="/action_page.php"
-              class="d-flex flex-column"
-              id="loginform"
-            >
-              <span id="closePopup2" class="close">&times;</span>
-              <div class="mb-3 mt-3">
-                <label for="logemail" class="form-label">Email:</label>
-                <div class="d-flex align-items-center">
-                  <i class="fa-regular fa-user pe-2"></i>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="logemail"
-                    placeholder="Enter email"
-                    name="logemail"
-                  />
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="pwd" class="form-label">Password:</label>
-                <div class="d-flex align-items-center">
-                  <i class="fa-solid fa-lock pe-2"></i>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="logpwd"
-                    placeholder="Enter password"
-                    name="logpswd"
-                  />
-                </div>
-              </div>
-              <div class="form-check mb-3">
-                <label class="form-check-label">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    name="remember"
-                    id="remembercheck"
-                  />
-                  Remember me
-                </label>
-              </div>
-              <button type="submit" class="btn orange mt-4" id="logbtn">
-                Login
-              </button>
-              <div class="text-center mt-3">
-                <p>
-                  Don't have an account?
-                  <a href="" class="signlink">Create an account</a>
-                </p>
-              </div>
-            </form>
-          </section>
-        </section>
-      </main>
     </div>
+  </nav>
+  <div id="popup" class="popup">
+    <main class="d-flex justify-content-center align-items-center" style="position: relative" class="popup-content">
+      <section class="d-flex log-form rounded-2 shadow p-3 mb-5 bg-body-tertiary rounded formVisible">
+        <section class="signup background">
+          <form action="pro.html" class="d-flex flex-column" style="opacity: 0; visibility: hidden" id="signform">
+            <span id="closePopup" class="close">&times;</span>
+            <div class="mb-3 mt-3 sign">
+              <label for="firstname">First name:</label>
+              <input type="text" class="form-control" id="firstname" placeholder="Enter first name" name="firstname"
+                required />
+              <label for="lastname">Last name:</label>
+              <input type="text" class="form-control" id="lastname" placeholder="Enter last name" name="lastname"
+                required />
+              <label for="signemail" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="signemail" placeholder="Enter email" name="signemail"
+                required />
+            </div>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Password:</label>
+              <input type="password" class="form-control" id="signpwd" placeholder="Enter password" name="signpswd"
+                required />
+            </div>
+            <button type="submit" class="btn orange" id="signbtn">
+              Sign up
+            </button>
+            <div class="text-center mt-3">
+              <p>
+                Already have an account?
+                <a href="" class="loglink">Login</a>
+              </p>
+            </div>
+          </form>
+        </section>
+        <section id="login" class="login">
+          <form action="/action_page.php" class="d-flex flex-column" id="loginform">
+            <span id="closePopup2" class="close">&times;</span>
+            <div class="mb-3 mt-3">
+              <label for="logemail" class="form-label">Email:</label>
+              <div class="d-flex align-items-center">
+                <i class="fa-regular fa-user pe-2"></i>
+                <input type="email" class="form-control" id="logemail" placeholder="Enter email" name="logemail" />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Password:</label>
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-lock pe-2"></i>
+                <input type="password" class="form-control" id="logpwd" placeholder="Enter password" name="logpswd" />
+              </div>
+            </div>
+            <div class="form-check mb-3">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember" id="remembercheck" />
+                Remember me
+              </label>
+            </div>
+            <button type="submit" class="btn orange mt-4" id="logbtn">
+              Login
+            </button>
+            <div class="text-center mt-3">
+              <p>
+                Don't have an account?
+                <a href="" class="signlink">Create an account</a>
+              </p>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+  </div>
 
-    <!-- Restaurant Image Section -->
-    <div class="restaurant-image-container text-center my-4">
-      <img
-        id="restaurant-image"
-        alt="Restaurant"
-        style="
+  <!-- Restaurant Image Section -->
+  <div class="restaurant-image-container text-center my-4">
+    <img id="restaurant-image" alt="Restaurant" style="
           width: 250px;
           height: 250px;
           border-radius: 50%;
           object-fit: cover;
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        "
-      />
-    </div>
+        " />
+  </div>
 
-    <div class="container my-5">
-      <!-- <h1 class="text-center mb-4">Restaurant Menu</h1> -->
-      <div class="menu-title">Main Dishes</div>
-      <div id="menu-list"></div>
-    </div>
-    <footer class="footer">
-      <ul class="nav justify-content-center pb-3 mb-3">
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2" id="home2">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="" class="nav-link px-2 openPopup" id="openPopup3">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a href="" class="nav-link px-2 openPopup" id="openPopup4">Login</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2">Contact Us</a>
-        </li>
-      </ul>
-      <p class="fs-5 copy text-center">©Copyright 2025</p>
-    </footer>
+  <div class="container my-5">
+    <!-- <h1 class="text-center mb-4">Restaurant Menu</h1> -->
+    <div class="menu-title">Main Dishes</div>
+    <div id="menu-list"></div>
+  </div>
+  <footer class="footer">
+    <ul class="nav justify-content-center pb-3 mb-3">
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2" id="home2">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link px-2 openPopup" id="openPopup3">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link px-2 openPopup" id="openPopup4">Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2">Contact Us</a>
+      </li>
+    </ul>
+    <p class="fs-5 copy text-center">©Copyright 2025</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // ////////nav/////////////
-      document.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled"); // أضف الكلاس إذا تم التمرير
-        } else {
-          navbar.classList.remove("scrolled"); // أزل الكلاس إذا عدنا للأعلى
-        }
-      });
-      ///////////////body///////////////////
+  <script>
+    // ////////nav/////////////
+    document.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled"); // أضف الكلاس إذا تم التمرير
+      } else {
+        navbar.classList.remove("scrolled"); // أزل الكلاس إذا عدنا للأعلى
+      }
+    });
+    ///////////////body///////////////////
 
-      // بيانات صور المطاعم
-      const restaurantImages = {
-        1: "images/McDonald's_square_2020.svg.png",
-        2: "images/WhatsApp Image 2025-01-24 at 09.16.37_289a8ecd.jpg",
-        3: "images/66A66245543FAA76BB82151ADDE0EEA9.jpeg",
-        4: "images/images (8).jpeg",
-        5: "images/WhatsApp Image 2025-01-24 at 09.16.40_8de15459.jpg",
-        6: "images/FB_IMG_1737880920032.jpg",
-      };
+    // بيانات صور المطاعم
+    const restaurantImages = {
+      1: "images/McDonald's_square_2020.svg.png",
+      2: "images/WhatsApp Image 2025-01-24 at 09.16.37_289a8ecd.jpg",
+      3: "images/66A66245543FAA76BB82151ADDE0EEA9.jpeg",
+      4: "images/images (8).jpeg",
+      5: "images/WhatsApp Image 2025-01-24 at 09.16.40_8de15459.jpg",
+      6: "images/FB_IMG_1737880920032.jpg",
+    };
 
-      // استرجاع restaurantId من الرابط
-      const urlParams = new URLSearchParams(window.location.search);
-      const restaurantId = urlParams.get("restaurantId");
+    // استرجاع restaurantId من الرابط
+    const urlParams = new URLSearchParams(window.location.search);
+    const restaurantId = urlParams.get("restaurantId");
 
-      // تحديث صورة المطعم
-      const updateRestaurantImage = () => {
-        const restaurantImage = document.getElementById("restaurant-image");
-        if (restaurantImages[restaurantId]) {
-          restaurantImage.src = restaurantImages[restaurantId];
-        } else {
-          restaurantImage.src = "default-image.jpg"; // صورة افتراضية
-        }
-      };
+    // تحديث صورة المطعم
+    const updateRestaurantImage = () => {
+      const restaurantImage = document.getElementById("restaurant-image");
+      if (restaurantImages[restaurantId]) {
+        restaurantImage.src = restaurantImages[restaurantId];
+      } else {
+        restaurantImage.src = "default-image.jpg"; // صورة افتراضية
+      }
+    };
 
-      // عرض القائمة وتحديث الصورة
-      document.addEventListener("DOMContentLoaded", () => {
-        updateRestaurantImage();
-        displayMenu();
-      });
+    // عرض القائمة وتحديث الصورة
+    document.addEventListener("DOMContentLoaded", () => {
+      updateRestaurantImage();
+      displayMenu();
+    });
 
-      // ///////////////////////////////////////////
+    // ///////////////////////////////////////////
 
-      const menuData = {
-        1: [
-          // McDonald's
-          {
-            id: 1,
-            name: "Big Mac",
-            price: "$5.99",
-            image: "images/bigmac.jpg",
-            link: "meal_details.html?mealId=1",
-          },
-          {
-            id: 2,
-            name: "McChicken",
-            price: "$4.99",
-            image: "images/mcchicken.jpg",
-            link: "meal_details.html?mealId=2",
-          },
-          {
-            id: 3,
-            name: "French Fries",
-            price: "$2.99",
-            image: "images/fries.jpg",
-            link: "meal_details.html?mealId=3",
-          },
-          {
-            id: 4,
-            name: "McFlurry",
-            price: "$3.99",
-            image: "images/mcflurry.jpg",
-            link: "meal_details.html?mealId=4",
-          },
-          {
-            id: 5,
-            name: "Filet-O-Fish",
-            price: "$4.49",
-            image: "images/filetofish.jpg",
-            link: "meal_details.html?mealId=5",
-          },
-          {
-            id: 6,
-            name: "Apple Pie",
-            price: "$1.99",
-            image: "images/applepie.jpg",
-            link: "meal_details.html?mealId=6",
-          },
-          {
-            id: 7,
-            name: "Chicken Nuggets",
-            price: "$4.99",
-            image: "images/nuggets.jpg",
-            link: "meal_details.html?mealId=7",
-          },
-          {
-            id: 8,
-            name: "McMuffin",
-            price: "$3.49",
-            image: "images/mcmuffin.jpg",
-            link: "meal_details.html?mealId=8",
-          },
-          {
-            id: 9,
-            name: "Vanilla Shake",
-            price: "$3.49",
-            image: "images/vanillashake.jpg",
-            link: "meal_details.html?mealId=9",
-          },
-        ],
-        2: [
-          // Burger King
-          {
-            id: 10,
-            name: "Whopper",
-            price: "$6.49",
-            image: "images/whopper.jpg",
-            link: "meal_details.html?mealId=10",
-          },
-          {
-            id: 11,
-            name: "Onion Rings",
-            price: "$3.49",
-            image: "images/onionrings.jpg",
-            link: "meal_details.html?mealId=11",
-          },
-          {
-            id: 12,
-            name: "Chicken Fries",
-            price: "$4.99",
-            image: "images/chickenfries.jpg",
-            link: "meal_details.html?mealId=12",
-          },
-          {
-            id: 13,
-            name: "Cheeseburger",
-            price: "$3.99",
-            image: "images/cheeseburger.jpg",
-            link: "meal_details.html?mealId=13",
-          },
-          {
-            id: 14,
-            name: "BK Stacker",
-            price: "$5.99",
-            image: "images/bkstacker.jpg",
-            link: "meal_details.html?mealId=14",
-          },
-          {
-            id: 15,
-            name: "French Toast Sticks",
-            price: "$2.99",
-            image: "images/frenchtoast.jpg",
-            link: "meal_details.html?mealId=15",
-          },
-          {
-            id: 16,
-            name: "Mozzarella Sticks",
-            price: "$3.99",
-            image: "images/mozzarellasticks.jpg",
-            link: "meal_details.html?mealId=16",
-          },
-          {
-            id: 17,
-            name: "Chocolate Shake",
-            price: "$4.49",
-            image: "images/chocolateshake.jpg",
-            link: "meal_details.html?mealId=17",
-          },
-          {
-            id: 18,
-            name: "Soft Drink",
-            price: "$1.99",
-            image: "images/softdrink.jpg",
-            link: "meal_details.html?mealId=18",
-          },
-        ],
-        3: [
-          // Bazooka
-          {
-            id: 19,
-            name: "Bazooka Chicken",
-            price: "$8.99",
-            image: "images/bazookachicken.jpg",
-            link: "meal_details.html?mealId=19",
-          },
-          {
-            id: 20,
-            name: "Cheese Fries",
-            price: "$4.49",
-            image: "images/cheesefries.jpg",
-            link: "meal_details.html?mealId=20",
-          },
-          {
-            id: 21,
-            name: "Spicy Wings",
-            price: "$6.99",
-            image: "images/spicywings.jpg",
-            link: "meal_details.html?mealId=21",
-          },
-          {
-            id: 22,
-            name: "BBQ Chicken Sandwich",
-            price: "$7.99",
-            image: "images/bbqsandwich.jpg",
-            link: "meal_details.html?mealId=22",
-          },
-          {
-            id: 23,
-            name: "Double Bazooka Burger",
-            price: "$9.99",
-            image: "images/doublebazooka.jpg",
-            link: "meal_details.html?mealId=23",
-          },
-          {
-            id: 24,
-            name: "Garlic Parmesan Fries",
-            price: "$3.99",
-            image: "images/garlicfries.jpg",
-            link: "meal_details.html?mealId=24",
-          },
-          {
-            id: 25,
-            name: "Buffalo Wings",
-            price: "$6.49",
-            image: "images/buffalowings.jpg",
-            link: "meal_details.html?mealId=25",
-          },
-          {
-            id: 26,
-            name: "Oreo Shake",
-            price: "$4.99",
-            image: "images/oreoshake.jpg",
-            link: "meal_details.html?mealId=26",
-          },
-          {
-            id: 27,
-            name: "Lemonade",
-            price: "$2.99",
-            image: "images/lemonade.jpg",
-            link: "meal_details.html?mealId=27",
-          },
-        ],
-        4: [
-          // KFC
-          {
-            id: 28,
-            name: "Zinger Burger",
-            price: "$5.99",
-            image: "zinger.jpg",
-            link: "meal_details.html?mealId=28",
-          },
-          {
-            id: 29,
-            name: "Popcorn Chicken",
-            price: "$4.99",
-            image: "popcorn.jpg",
-            link: "meal_details.html?mealId=29",
-          },
-          {
-            id: 30,
-            name: "Coleslaw",
-            price: "$2.49",
-            image: "coleslaw.jpg",
-            link: "meal_details.html?mealId=30",
-          },
-          {
-            id: 31,
-            name: "Mashed Potatoes",
-            price: "$2.99",
-            image: "mashedpotatoes.jpg",
-            link: "meal_details.html?mealId=31",
-          },
-          {
-            id: 32,
-            name: "Grilled Chicken",
-            price: "$6.99",
-            image: "grilledchicken.jpg",
-            link: "meal_details.html?mealId=32",
-          },
-          {
-            id: 33,
-            name: "Honey BBQ Wings",
-            price: "$5.49",
-            image: "bbqwings.jpg",
-            link: "meal_details.html?mealId=33",
-          },
-          {
-            id: 34,
-            name: "Mac & Cheese",
-            price: "$3.49",
-            image: "macncheese.jpg",
-            link: "meal_details.html?mealId=34",
-          },
-          {
-            id: 35,
-            name: "Biscuits",
-            price: "$1.99",
-            image: "biscuits.jpg",
-            link: "meal_details.html?mealId=35",
-          },
-          {
-            id: 36,
-            name: "Pepsi",
-            price: "$1.99",
-            image: "pepsi.jpg",
-            link: "meal_details.html?mealId=36",
-          },
-        ],
-        5: [
-          // Pizza Hut
-          {
-            id: 37,
-            name: "Pepperoni Pizza",
-            price: "$12.99",
-            image: "pepperoni.jpg",
-            link: "meal_details.html?mealId=37",
-          },
-          {
-            id: 38,
-            name: "Garlic Bread",
-            price: "$3.99",
-            image: "garlicbread.jpg",
-            link: "meal_details.html?mealId=38",
-          },
-          {
-            id: 39,
-            name: "Cheese Sticks",
-            price: "$5.49",
-            image: "cheesesticks.jpg",
-            link: "meal_details.html?mealId=39",
-          },
-          {
-            id: 40,
-            name: "Stuffed Crust Pizza",
-            price: "$14.99",
-            image: "stuffedcrust.jpg",
-            link: "meal_details.html?mealId=40",
-          },
-          {
-            id: 41,
-            name: "BBQ Chicken Pizza",
-            price: "$13.99",
-            image: "bbqpizza.jpg",
-            link: "meal_details.html?mealId=41",
-          },
-          {
-            id: 42,
-            name: "Pasta Alfredo",
-            price: "$7.99",
-            image: "pastaalfredo.jpg",
-            link: "meal_details.html?mealId=42",
-          },
-          {
-            id: 43,
-            name: "Chocolate Lava Cake",
-            price: "$4.99",
-            image: "lavacake.jpg",
-            link: "meal_details.html?mealId=43",
-          },
-          {
-            id: 44,
-            name: "Coca-Cola",
-            price: "$1.99",
-            image: "coke.jpg",
-            link: "meal_details.html?mealId=44",
-          },
-          {
-            id: 45,
-            name: "Ice Cream",
-            price: "$2.99",
-            image: "icecream.jpg",
-            link: "meal_details.html?mealId=45",
-          },
-        ],
-      };
+    const menuData = {
+      1: [
+        // McDonald's
+        {
+          id: 1,
+          name: "Big Mac",
+          price: "$5.99",
+          image: "images/bigmac.jpg",
+          link: "meal_details.html?mealId=1",
+        },
+        {
+          id: 2,
+          name: "McChicken",
+          price: "$4.99",
+          image: "images/mcchicken.jpg",
+          link: "meal_details.html?mealId=2",
+        },
+        {
+          id: 3,
+          name: "French Fries",
+          price: "$2.99",
+          image: "images/fries.jpg",
+          link: "meal_details.html?mealId=3",
+        },
+        {
+          id: 4,
+          name: "McFlurry",
+          price: "$3.99",
+          image: "images/mcflurry.jpg",
+          link: "meal_details.html?mealId=4",
+        },
+        {
+          id: 5,
+          name: "Filet-O-Fish",
+          price: "$4.49",
+          image: "images/filetofish.jpg",
+          link: "meal_details.html?mealId=5",
+        },
+        {
+          id: 6,
+          name: "Apple Pie",
+          price: "$1.99",
+          image: "images/applepie.jpg",
+          link: "meal_details.html?mealId=6",
+        },
+        {
+          id: 7,
+          name: "Chicken Nuggets",
+          price: "$4.99",
+          image: "images/nuggets.jpg",
+          link: "meal_details.html?mealId=7",
+        },
+        {
+          id: 8,
+          name: "McMuffin",
+          price: "$3.49",
+          image: "images/mcmuffin.jpg",
+          link: "meal_details.html?mealId=8",
+        },
+        {
+          id: 9,
+          name: "Vanilla Shake",
+          price: "$3.49",
+          image: "images/vanillashake.jpg",
+          link: "meal_details.html?mealId=9",
+        },
+      ],
+      2: [
+        // Burger King
+        {
+          id: 10,
+          name: "Whopper",
+          price: "$6.49",
+          image: "images/whopper.jpg",
+          link: "meal_details.html?mealId=10",
+        },
+        {
+          id: 11,
+          name: "Onion Rings",
+          price: "$3.49",
+          image: "images/onionrings.jpg",
+          link: "meal_details.html?mealId=11",
+        },
+        {
+          id: 12,
+          name: "Chicken Fries",
+          price: "$4.99",
+          image: "images/chickenfries.jpg",
+          link: "meal_details.html?mealId=12",
+        },
+        {
+          id: 13,
+          name: "Cheeseburger",
+          price: "$3.99",
+          image: "images/cheeseburger.jpg",
+          link: "meal_details.html?mealId=13",
+        },
+        {
+          id: 14,
+          name: "BK Stacker",
+          price: "$5.99",
+          image: "images/bkstacker.jpg",
+          link: "meal_details.html?mealId=14",
+        },
+        {
+          id: 15,
+          name: "French Toast Sticks",
+          price: "$2.99",
+          image: "images/frenchtoast.jpg",
+          link: "meal_details.html?mealId=15",
+        },
+        {
+          id: 16,
+          name: "Mozzarella Sticks",
+          price: "$3.99",
+          image: "images/mozzarellasticks.jpg",
+          link: "meal_details.html?mealId=16",
+        },
+        {
+          id: 17,
+          name: "Chocolate Shake",
+          price: "$4.49",
+          image: "images/chocolateshake.jpg",
+          link: "meal_details.html?mealId=17",
+        },
+        {
+          id: 18,
+          name: "Soft Drink",
+          price: "$1.99",
+          image: "images/softdrink.jpg",
+          link: "meal_details.html?mealId=18",
+        },
+      ],
+      3: [
+        // Bazooka
+        {
+          id: 19,
+          name: "Bazooka Chicken",
+          price: "$8.99",
+          image: "images/bazookachicken.jpg",
+          link: "meal_details.html?mealId=19",
+        },
+        {
+          id: 20,
+          name: "Cheese Fries",
+          price: "$4.49",
+          image: "images/cheesefries.jpg",
+          link: "meal_details.html?mealId=20",
+        },
+        {
+          id: 21,
+          name: "Spicy Wings",
+          price: "$6.99",
+          image: "images/spicywings.jpg",
+          link: "meal_details.html?mealId=21",
+        },
+        {
+          id: 22,
+          name: "BBQ Chicken Sandwich",
+          price: "$7.99",
+          image: "images/bbqsandwich.jpg",
+          link: "meal_details.html?mealId=22",
+        },
+        {
+          id: 23,
+          name: "Double Bazooka Burger",
+          price: "$9.99",
+          image: "images/doublebazooka.jpg",
+          link: "meal_details.html?mealId=23",
+        },
+        {
+          id: 24,
+          name: "Garlic Parmesan Fries",
+          price: "$3.99",
+          image: "images/garlicfries.jpg",
+          link: "meal_details.html?mealId=24",
+        },
+        {
+          id: 25,
+          name: "Buffalo Wings",
+          price: "$6.49",
+          image: "images/buffalowings.jpg",
+          link: "meal_details.html?mealId=25",
+        },
+        {
+          id: 26,
+          name: "Oreo Shake",
+          price: "$4.99",
+          image: "images/oreoshake.jpg",
+          link: "meal_details.html?mealId=26",
+        },
+        {
+          id: 27,
+          name: "Lemonade",
+          price: "$2.99",
+          image: "images/lemonade.jpg",
+          link: "meal_details.html?mealId=27",
+        },
+      ],
+      4: [
+        // KFC
+        {
+          id: 28,
+          name: "Zinger Burger",
+          price: "$5.99",
+          image: "zinger.jpg",
+          link: "meal_details.html?mealId=28",
+        },
+        {
+          id: 29,
+          name: "Popcorn Chicken",
+          price: "$4.99",
+          image: "popcorn.jpg",
+          link: "meal_details.html?mealId=29",
+        },
+        {
+          id: 30,
+          name: "Coleslaw",
+          price: "$2.49",
+          image: "coleslaw.jpg",
+          link: "meal_details.html?mealId=30",
+        },
+        {
+          id: 31,
+          name: "Mashed Potatoes",
+          price: "$2.99",
+          image: "mashedpotatoes.jpg",
+          link: "meal_details.html?mealId=31",
+        },
+        {
+          id: 32,
+          name: "Grilled Chicken",
+          price: "$6.99",
+          image: "grilledchicken.jpg",
+          link: "meal_details.html?mealId=32",
+        },
+        {
+          id: 33,
+          name: "Honey BBQ Wings",
+          price: "$5.49",
+          image: "bbqwings.jpg",
+          link: "meal_details.html?mealId=33",
+        },
+        {
+          id: 34,
+          name: "Mac & Cheese",
+          price: "$3.49",
+          image: "macncheese.jpg",
+          link: "meal_details.html?mealId=34",
+        },
+        {
+          id: 35,
+          name: "Biscuits",
+          price: "$1.99",
+          image: "biscuits.jpg",
+          link: "meal_details.html?mealId=35",
+        },
+        {
+          id: 36,
+          name: "Pepsi",
+          price: "$1.99",
+          image: "pepsi.jpg",
+          link: "meal_details.html?mealId=36",
+        },
+      ],
+      5: [
+        // Pizza Hut
+        {
+          id: 37,
+          name: "Pepperoni Pizza",
+          price: "$12.99",
+          image: "pepperoni.jpg",
+          link: "meal_details.html?mealId=37",
+        },
+        {
+          id: 38,
+          name: "Garlic Bread",
+          price: "$3.99",
+          image: "garlicbread.jpg",
+          link: "meal_details.html?mealId=38",
+        },
+        {
+          id: 39,
+          name: "Cheese Sticks",
+          price: "$5.49",
+          image: "cheesesticks.jpg",
+          link: "meal_details.html?mealId=39",
+        },
+        {
+          id: 40,
+          name: "Stuffed Crust Pizza",
+          price: "$14.99",
+          image: "stuffedcrust.jpg",
+          link: "meal_details.html?mealId=40",
+        },
+        {
+          id: 41,
+          name: "BBQ Chicken Pizza",
+          price: "$13.99",
+          image: "bbqpizza.jpg",
+          link: "meal_details.html?mealId=41",
+        },
+        {
+          id: 42,
+          name: "Pasta Alfredo",
+          price: "$7.99",
+          image: "pastaalfredo.jpg",
+          link: "meal_details.html?mealId=42",
+        },
+        {
+          id: 43,
+          name: "Chocolate Lava Cake",
+          price: "$4.99",
+          image: "lavacake.jpg",
+          link: "meal_details.html?mealId=43",
+        },
+        {
+          id: 44,
+          name: "Coca-Cola",
+          price: "$1.99",
+          image: "coke.jpg",
+          link: "meal_details.html?mealId=44",
+        },
+        {
+          id: 45,
+          name: "Ice Cream",
+          price: "$2.99",
+          image: "icecream.jpg",
+          link: "meal_details.html?mealId=45",
+        },
+      ],
+    };
 
-      const displayMenu = () => {
-        const menuList = document.getElementById("menu-list");
-        if (restaurantId && menuData[restaurantId]) {
-          let menuHTML = '<div class="menu-grid">'; // Start grid container
-          menuData[restaurantId].forEach((item, index) => {
-            // Open a new row every 3 items
-            if (index % 3 === 0) {
-              menuHTML += `<div class="menu-row">`;
-            }
+    const displayMenu = () => {
+      const menuList = document.getElementById("menu-list");
+      if (restaurantId && menuData[restaurantId]) {
+        let menuHTML = '<div class="menu-grid">'; // Start grid container
+        menuData[restaurantId].forEach((item, index) => {
+          // Open a new row every 3 items
+          if (index % 3 === 0) {
+            menuHTML += `<div class="menu-row">`;
+          }
 
-            // Add meal card
-            menuHTML += `
+          // Add meal card
+          menuHTML += `
         <div class="card">
           <a href="${item.link}">
             <img src="${item.image}" alt="${item.name}">
@@ -793,24 +762,27 @@
         </div>
       `;
 
-            // Close the row after 3 items or at the end
-            if (
-              index % 3 === 2 ||
-              index === menuData[restaurantId].length - 1
-            ) {
-              menuHTML += `</div>`; // Close the row
-            }
-          });
-          menuHTML += "</div>"; // Close grid container
-          menuList.innerHTML = menuHTML;
-        } else {
-          menuList.innerHTML = "<p>No menu available for this restaurant.</p>";
-        }
-      };
+          // Close the row after 3 items or at the end
+          if (
+            index % 3 === 2 ||
+            index === menuData[restaurantId].length - 1
+          ) {
+            menuHTML += `</div>`; // Close the row
+          }
+        });
+        menuHTML += "</div>"; // Close grid container
+        menuList.innerHTML = menuHTML;
+      } else {
+        menuList.innerHTML = "<p>No menu available for this restaurant.</p>";
+      }
+    };
 
-      document.addEventListener("DOMContentLoaded", displayMenu);
-    </script>
-    <script src="js/popup.js"></script>
-    <script src="js/logscript.js"></script>
-  </body>
+    document.addEventListener("DOMContentLoaded", displayMenu);
+  </script>
+  <script src=" js/all.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/logscript.js"></script>
+</body>
+
 </html>
