@@ -102,7 +102,7 @@ const goToMenu = (id) => {
     window.location.href = `menu.html?restaurantId=${id}`;
 };
 const goToBooking = () => {
-    window.location.href = `ziad/booking.html`;
+    window.location.href = `booking.html`;
 };
 
 // Function to display restaurants

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>booking page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/booking.css" />
+</head>
+
+<body>
+  <main>
+    <div class="image-container">
+      <img src="images/booking.png" alt="Delicious Burger" />
+    </div>
+    <div class="form-container">
+      <h1>Booking</h1>
+      <form id="bookingForm" class="form">
+        <label for="resturants">Restaurants *</label>
+        <select id="resturants" required>
+          <option value="McDonald's">McDonald's</option>
+          <option value="Burger King">Burger King</option>
+          <option value="Bazooka">Bazooka</option>
+          <option value="KFC">KFC</option>
+          <option value="Pizza Hut">Pizza Hut</option>
+          <option value="Heart Attack">Heart Attack</option>
+        </select>
+
+        <label for="date">Date *</label>
+        <input type="date" id="date" required />
+
+        <label for="time">Time *</label>
+        <select id="time" required>
+          <option value="18:00">18:00</option>
+          <option value="19:00">19:00</option>
+          <option value="20:00">20:00</option>
+        </select>
+
+        <label for="people">People *</label>
+        <select id="people" required>
+          <option value="1 ">1 person</option>
+          <option value="2 ">2 persons</option>
+          <option value="3 ">3 persons</option>
+          <option value="4 ">4 persons</option>
+        </select>
+
+        <label for="firstName">First Name *</label>
+        <input type="text" id="firstName" required />
+
+        <label for="lastName">Last Name *</label>
+        <input type="text" id="lastName" required />
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" required />
+
+        <label for="phone">Phone *</label>
+        <input type="tel" id="phone" required />
+
+        <label for="comments">Comments (optional)</label>
+        <textarea id="comments"></textarea>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="newsletter" />
+          <label id="check" for="newsletter">Subscribe me to the newsletter</label>
+        </div>
+
+        <button class="btn-form" type="submit">
+          Book a table
+        </button>
+      </form>
+    </div>
+  </main>
+  <script src="js/booking.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
