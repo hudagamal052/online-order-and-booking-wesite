@@ -30,32 +30,3 @@ window.onload = function () {
 };
 
 
-
-document.getElementById('search-form').addEventListener('submit', function (event) {
-
-    // Get the search query
-    const query = document.getElementById('exampleDataList').value.toLowerCase();
-
-    // Map restaurant names to their URLs
-    const restaurants = {
-        "sushi": "restaurant_sushi.html",
-        "sea food": "restaurant_seafood.html",
-        "healthy food": "restaurant_healthy.html",
-        "dessert": "restaurant_dessert.html",
-        "coffee": "restaurant_coffee.html",
-    };
-
-    // Check if the query matches a restaurant
-    if (restaurants[query]) {
-        // Redirect to the restaurant's page
-        window.location.href = restaurants[query];
-    } else {
-        // Show an error message if no match is found
-        alert("No restaurant found for your search. Please try again.");
-    }
-    event.preventDefault(); // Prevent the form from submitting
-});
-
-
-
-
