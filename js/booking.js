@@ -1,6 +1,8 @@
+
 const bookingForm = document.getElementById("bookingForm");
 bookingForm.addEventListener("submit", function (event) {
   event.preventDefault();
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^[0-9]{11}$/;
 
